@@ -1,0 +1,40 @@
+name: app_flutter
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  device_preview: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.png
+    - assets/images/logo_google.png
+  
+  fonts:
+    - family: InriaSerif
+      fonts:
+        - asset: assets/fonts/InriaSerif-Bold.ttf
+        - asset: assets/fonts/InriaSerif-Italic.ttf
+        - asset: assets/fonts/InriaSerif-Light.ttf
+        - asset: assets/fonts/InriaSerif-LightItalic.ttf
+        - asset: assets/fonts/InriaSerif-BoldItalic.ttf
+        - asset: assets/fonts/InriaSerif-Regular.ttf
+
+    - family: InstrumentSerif
+      fonts:
+        - asset: assets/fonts/InstrumentSerif-Regular.ttf
+        - asset: assets/fonts/InstrumentSerif-Italic.ttf
+
