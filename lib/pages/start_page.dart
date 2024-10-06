@@ -40,6 +40,7 @@ class _StartPageState extends State<StartPage> {
       body: GradientBackground(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/images/logo.png', 
