@@ -1,3 +1,6 @@
+import 'package:app_flutter/pages/passwordRecovery_page.dart';
+import 'package:app_flutter/pages/rating_page.dart';
+import 'package:app_flutter/pages/suport_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +33,10 @@ class MainApp extends StatelessWidget {
         'LoginPage': (context) => LoginPage(),
         'SignUpPage': (context) => SignUpPage(),
         'MenuPage': (context) => MenuPage(),
+        'PasswordRecoveryPage': (context) => PasswordRecoveryPage(),
+        'SupportPage': (context) => SupportPage(),
+        'RatingPage': (context) => RatingPage(),
+
       },
     );
   }
