@@ -1,4 +1,3 @@
-//CRIAR UMA SAFE AREA
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 //import 'package:get_it/get_it.dart';
@@ -21,8 +20,7 @@ class _StartPageState extends State<StartPage> {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        text,
+      child: Text(text,
         style: TextStyle(
           fontFamily: 'InriaSerif',
           fontWeight: FontWeight.bold,
