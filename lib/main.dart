@@ -10,6 +10,8 @@ import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
 
+
+
 //import 'package:get_it/get_it.dart';
 //final getIt = GetIt.instance;
 
@@ -36,7 +38,7 @@ class MainApp extends StatelessWidget {
         'LoginPage': (context) => LoginPage(),
         'SignUpPage': (context) => SignUpPage(),
         'MenuPage': (context) => MenuPage(),
-        'PasswordRecoveryPage': (context) => PasswordRecoveryPage(),
+        'PassworgedRecoveryPage': (context) => PasswordRecoveryPage(),
         'SupportPage': (context) => SupportPage(),
         'RatingPage': (context) => RatingPage(),
       },
