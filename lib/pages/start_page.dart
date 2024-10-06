@@ -1,5 +1,7 @@
-//TORNAR O LOGO RESPONSIVO NA ALTURA E CRIAR UMA SAFE AREA
+//CRIAR UMA SAFE AREA
 import 'package:flutter/material.dart';
+import 'package:app_flutter/widgets/gradient_background.dart';
+//import 'package:get_it/get_it.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -13,7 +15,7 @@ class _StartPageState extends State<StartPage> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xC8000000),
-        minimumSize: const Size(318, 54),
+        minimumSize: Size(318, 54),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -35,20 +37,9 @@ class _StartPageState extends State<StartPage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    
+
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: const [
-              Color(0xFF478197),
-              Color(0xFF1C343D),
-              Color(0xFF172A31),
-            ],
-          ),
-        ),
+      body: GradientBackground(
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -100,29 +91,31 @@ class _StartPageState extends State<StartPage> {
 
               //CONTINUE WITH GOOGLE
               SizedBox(height: 24),
-              SizedBox(
-                height:54,
-                width: 318,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100))),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/images/logo_google.png', width: 29),
-                      SizedBox(width: 10),
-                      Text('Continue with Google',
-                        style: TextStyle(
-                          fontFamily: 'InriaSerif',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18, 
-                          color: Color(0xFF1B313A)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36),
+                child: SizedBox(
+                  height: 54,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100))),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/images/logo_google.png', width: 29),
+                        SizedBox(width: 10),
+                        Text('Continue with Google',
+                          style: TextStyle(
+                            fontFamily: 'InriaSerif',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18, 
+                            color: Color(0xFF1B313A)
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

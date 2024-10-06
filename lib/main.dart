@@ -1,11 +1,15 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 import 'pages/start_page.dart';
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+//import 'package:get_it/get_it.dart';
+
+//final getIt = GetIt.instance;
+
 
 void main() {
   runApp(
