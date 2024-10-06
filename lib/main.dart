@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:app_flutter/pages/passwordRecovery_page.dart';
 import 'package:app_flutter/pages/rating_page.dart';
 import 'package:app_flutter/pages/suport_page.dart';
@@ -5,10 +6,20 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+=======
+>>>>>>> 71cba3bd3ce50672666b0aa6ae9f7f663a3ea82e
 import 'pages/start_page.dart';
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+//import 'package:get_it/get_it.dart';
+
+//final getIt = GetIt.instance;
+
 
 void main() {
   runApp(
