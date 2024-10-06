@@ -1,4 +1,4 @@
-import 'package:app_flutter/pages/passwordRecovery_page.dart';
+import 'package:app_flutter/pages/recovery_page.dart';
 import 'package:app_flutter/pages/rating_page.dart';
 import 'package:app_flutter/pages/suport_page.dart';
 import 'package:device_preview/device_preview.dart';
