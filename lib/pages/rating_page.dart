@@ -121,9 +121,20 @@ class _RatingPageState extends State<RatingPage> {
 
               // BOTÃO DE VOLTAR
               const SizedBox(height: 18),
-              customButton('Voltar', () {
-                Navigator.pop(context);
-              }),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'LoginPage');
+                  },
+                child: Text('Não desejo avaliar!',
+                  style: TextStyle(
+                    fontFamily: 'InriaSerif',
+                    fontSize: 18,
+                    color: Color(0xFFC99856),
+                    decoration: TextDecoration.underline,
+                    decorationColor: Color(0xFFC99856),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
