@@ -12,7 +12,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget customTextField(String labelText, String hintText, bool obscureText) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Container(
+        child: SizedBox(
           height: 50,
           child: TextField(
           obscureText: obscureText,
@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 42,
                       width: 138,
                       child: ElevatedButton(
