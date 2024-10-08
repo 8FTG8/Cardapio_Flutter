@@ -9,8 +9,7 @@ import 'pages/start_page.dart';
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
-
-
+import 'pages/product_details_page.dart';
 
 //import 'package:get_it/get_it.dart';
 //final getIt = GetIt.instance;
@@ -41,6 +40,21 @@ class MainApp extends StatelessWidget {
         'PassworgedRecoveryPage': (context) => PasswordRecoveryPage(),
         'SupportPage': (context) => SupportPage(),
         'RatingPage': (context) => RatingPage(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == 'ProductDetailsPage') {
+          final args = settings.arguments as Map<String, dynamic>;
+          return MaterialPageRoute(
+            builder: (context) => ProductDetailsPage(
+              productName: args['productName'],
+              productDescription: args['productDescription'],
+              productImage: args['productImage'],
+              rating: args['rating'],
+              orders: args['orders'],
+            ),
+          );
+        }
+        return null; // Retorna null se a rota não for reconhecida
       },
     );
   }

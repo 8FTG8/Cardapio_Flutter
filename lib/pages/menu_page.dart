@@ -54,9 +54,12 @@ class MenuPageState extends State<MenuPage> {
                         color: Colors.white,
                       ),
                     ),
+                    const SizedBox(height: 8),
                     Text(
                       productDescription,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(
+                        color: Colors.white70,
+                      ),
                     ),
                   ],
                 ),
@@ -72,11 +75,11 @@ class MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: const [
+            colors: [
               Color(0xFF478197),
               Color(0xFF1C343D),
               Color(0xFF172A31),
@@ -85,9 +88,17 @@ class MenuPageState extends State<MenuPage> {
         ),
         child: ListView(
           children: [
-            // Adicione seus itens do menu aqui
-            _buildMenuItem('Medalhão de Filet Mignon au Poivre', 'assets/images/your_image.png', 'Delicioso medalhão grelhado com molho especial.'),
-            // Adicione mais itens conforme necessário
+            _buildMenuItem(
+              'Produto 1',
+              'assets/images/produto1.png',
+              'Descrição do Produto 1',
+            ),
+            _buildMenuItem(
+              'Produto 2',
+              'assets/images/produto2.png',
+              'Descrição do Produto 2',
+            ),
+            // Adicione mais produtos conforme necessário
           ],
         ),
       ),
