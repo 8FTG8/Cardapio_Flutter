@@ -1,3 +1,6 @@
+//DESIGN: FINALIZADO 
+//FUNCIONALIDADES: NÃO FINALIZADO
+
 import 'package:flutter/material.dart';
 
 class SupportPage extends StatefulWidget {

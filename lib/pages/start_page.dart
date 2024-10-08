@@ -1,3 +1,6 @@
+//DESIGN: FINALIZADO 
+//FUNCIONALIDADES: NÃO FINALIZADO
+
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 //import 'package:get_it/get_it.dart';
@@ -40,6 +43,7 @@ class _StartPageState extends State<StartPage> {
       body: GradientBackground(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/images/logo.png', 

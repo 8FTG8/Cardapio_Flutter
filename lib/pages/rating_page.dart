@@ -1,3 +1,6 @@
+//DESIGN: FINALIZADO 
+//FUNCIONALIDADES: NÃO FINALIZADO
+
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 //import 'package:get_it/get_it.dart';
@@ -29,7 +32,7 @@ class _RatingPageState extends State<RatingPage> {
           style: TextStyle(
             fontFamily: 'InriaSerif',
             fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontSize: 20,
             color: Color(0xFFC99856),
           ),
         ),
@@ -49,13 +52,13 @@ class _RatingPageState extends State<RatingPage> {
             children: [
 
               //AVALIE NOSSO SERVIÇO
-              const SizedBox(height: 30),
+              const SizedBox(height: 42),
               const Text('Avalie nosso serviço!',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Color(0xFFC99856),
+                  fontSize: 30,
+                  color: Color(0xFFE29E46),
                 ),
               ),
 
@@ -69,7 +72,7 @@ class _RatingPageState extends State<RatingPage> {
                       index < _rating
                           ? Icons.star
                           : Icons.star_border,
-                      color: const Color(0xFFC99856)),
+                      color: const Color(0xFFE29E46)),
                     onPressed: () {
                       setState(() {
                         _rating = index + 1.0; // Define a nota escolhida
