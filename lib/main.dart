@@ -37,7 +37,7 @@ class MainApp extends StatelessWidget {
         'LoginPage': (context) => LoginPage(),
         'SignUpPage': (context) => SignUpPage(),
         'MenuPage': (context) => MenuPage(),
-        'PassworgedRecoveryPage': (context) => PasswordRecoveryPage(),
+        'PasswordRecoveryPage': (context) => PasswordRecoveryPage(),
         'SupportPage': (context) => SupportPage(),
         'RatingPage': (context) => RatingPage(),
       },

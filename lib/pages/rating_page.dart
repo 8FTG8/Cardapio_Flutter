@@ -123,7 +123,7 @@ class _RatingPageState extends State<RatingPage> {
               const SizedBox(height: 18),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'LoginPage');
+                  Navigator.pushNamed(context, 'MenuPage');
                   },
                 child: Text('Não desejo avaliar!',
                   style: TextStyle(

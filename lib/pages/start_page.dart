@@ -64,11 +64,11 @@ class _StartPageState extends State<StartPage> {
 
               //LOGIN
               SizedBox(height: 24),
-              customButton('Log In', () {}),
+              customButton('Log In', () {Navigator.pushNamed(context, 'LoginPage');}),
 
               //SIGNUP
               SizedBox(height: 18),
-              customButton('Sign Up', () {}),
+              customButton('Sign Up', () {Navigator.pushNamed(context, 'SignUpPage');}),
 
               //SEPARATOR
               SizedBox(height: 24),

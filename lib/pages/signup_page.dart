@@ -57,8 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
+                Image.asset('assets/images/logo.png',
                   width: screenWidth,
                   height: screenHeight * 0.4,
                   fit: BoxFit.cover,
@@ -70,13 +69,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   padding: const EdgeInsets.only(left: 24),
                   child: Row(
                     children: [
-                      Icon(
+                      IconButton(
+                        icon: Icon(
                         Icons.arrow_back_ios_new,
                         color: Color(0xFFC99856),
+                        ),
+                        onPressed: () {Navigator.pushNamed(context, 'StartPage');},
                       ),
                       SizedBox(width: 18),
-                      Text(
-                        'Sign Up',
+                      Text('Sign Up',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontWeight: FontWeight.bold,
@@ -117,9 +118,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          onPressed: () {},
-                          child: Text(
-                            'Sign Up',
+                          onPressed: () {Navigator.pushNamed(context, 'StartPage');},
+                          child: Text('Sign Up',
                             style: TextStyle(
                               fontFamily: 'InriaSerif',
                               fontWeight: FontWeight.bold,
