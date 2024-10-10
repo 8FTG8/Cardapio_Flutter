@@ -1,3 +1,4 @@
+import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsPage extends StatelessWidget {
@@ -24,27 +25,14 @@ class ProductDetailsPage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF478197),
-              Color(0xFF1C343D),
-              Color(0xFF172A31),
-            ],
-          ),
-        ),
+      body: GradientBackground(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
-                  // Imagem do produto
-                  Image.asset(
-                    productImage,
+                  Image.asset(productImage,
                     width: screenWidth,
                     height: screenHeight * 0.4,
                     fit: BoxFit.cover,

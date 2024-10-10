@@ -11,9 +11,6 @@ import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
 import 'pages/product_details_page.dart';
 
-//import 'package:get_it/get_it.dart';
-//final getIt = GetIt.instance;
-
 void main() {
   runApp(
     DevicePreview(

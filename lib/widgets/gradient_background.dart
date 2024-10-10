@@ -6,7 +6,6 @@ class GradientBackground extends StatelessWidget {
   final Widget child;
 
   const GradientBackground({required this.child, Key? key}) : super(key: key);
-  
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,6 +27,4 @@ class GradientBackground extends StatelessWidget {
       ],
     );
   }
-
-  
 }
