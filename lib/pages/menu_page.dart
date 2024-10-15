@@ -1,5 +1,6 @@
+import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
-import 'product_details_page.dart'; // Certifique-se de importar a página de detalhes do produto
+//import 'product_details_page.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -9,12 +10,9 @@ class MenuPage extends StatefulWidget {
 }
 
 class MenuPageState extends State<MenuPage> {
-
-  // Método para construir um item do menu
   Widget _buildMenuItem(String productName, String productImage, String productDescription) {
     return GestureDetector(
       onTap: () {
-        // Navega para a tela de detalhes do produto ao clicar
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -29,76 +27,120 @@ class MenuPageState extends State<MenuPage> {
           ),
         );
       },
-      child: Card(
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
+
+        const SizedBox(width: 16),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                productImage,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
+              Text(
+                productName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
               ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      productName,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      productDescription,
-                      style: const TextStyle(
-                        color: Colors.white70,
-                      ),
-                    ),
-                  ],
+
+              const SizedBox(height: 8),
+              Text(
+                productDescription,
+                style: const TextStyle(
+                  color: Colors.white70,
                 ),
               ),
             ],
           ),
         ),
-      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF478197),
-              Color(0xFF1C343D),
-              Color(0xFF172A31),
-            ],
-          ),
-        ),
-        child: ListView(
+      body: GradientBackground(
+        child: GridView(
           children: [
             _buildMenuItem(
-              'Produto 1',
-              'assets/images/produto1.png',
-              'Descrição do Produto 1',
+              'Nome',
+              'assets/images/entrada_1.png',
+              'Descrição',
             ),
             _buildMenuItem(
-              'Produto 2',
-              'assets/images/produto2.png',
-              'Descrição do Produto 2',
+              'Nome',
+              'assets/images/entrada_2.png',
+              'Descrição',
             ),
-            // Adicione mais produtos conforme necessário
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_1.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_2.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_3.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_4.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_5.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_6.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_7.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/prato_8.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_1.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_2.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_3.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_4.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_5.png',
+              'Descrição',
+            ),
+            _buildMenuItem(
+              'Nome',
+              'assets/images/drink_6.png',
+              'Descrição',
+            ),
           ],
         ),
       ),
