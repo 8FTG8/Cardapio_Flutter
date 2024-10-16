@@ -1,7 +1,6 @@
 import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
 //import 'product_details_page.dart';
-
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
 
