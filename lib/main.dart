@@ -10,6 +10,10 @@ import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
 import 'pages/product_details_page.dart';
+<<<<<<< HEAD
+import 'pages/cart_page.dart'; // Certifique-se de importar a página do carrinho
+=======
+>>>>>>> 085a6921a6cdcf1af057be4ab59b1ff2fa9ada41
 
 void main() {
   runApp(
@@ -52,6 +56,12 @@ class MainApp extends StatelessWidget {
           );
         }
         return null; // Retorna null se a rota não for reconhecida
+      },
+      builder: (context, child) {
+        return Scaffold(
+          drawer: const CartPage(), // Adiciona o drawer do carrinho aqui
+          body: child,
+        );
       },
     );
   }

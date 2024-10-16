@@ -156,3 +156,218 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+//import 'package:flutter/material.dart';
+//import 'package:app_flutter/widgets/gradient_background.dart';
+//import 'package:app_flutter/main.dart'; // Para acessar a lista registeredUsers
+
+//class LoginPage extends StatefulWidget {
+//  const LoginPage({super.key});
+//
+//  @override
+//  State<LoginPage> createState() => _LoginPageState();
+//}
+//
+//class _LoginPageState extends State<LoginPage> {
+  // Controladores de texto para capturar dados de entrada
+ // final TextEditingController emailController = TextEditingController();
+ // final TextEditingController passwordController = TextEditingController();
+
+  // Função para verificar login
+ // void loginUser() {
+ //   String email = emailController.text;
+ //   String password = passwordController.text;
+//
+ //   // Verificação se os campos estão preenchidos
+ //   if (email.isEmpty || password.isEmpty) {
+ //     showErrorMessage("Por favor, preencha todos os campos.");
+ //     return;
+ //   }
+//
+ //   // Verificação se o usuário está cadastrado
+ //   bool userFound = false;
+ //   for (var user in registeredUsers) {
+ //     if (user['email'] == email && user['password'] == password) {
+ //       userFound = true;
+ //       break;
+ //     }
+ //   }
+//
+ //   if (userFound) {
+ //     showSuccessMessage("Login realizado com sucesso!");
+ //     // Navegar para a página principal ou de menu após login
+ //     Navigator.pushNamed(context, 'MenuPage');
+ //   } else {
+ //     showErrorMessage("Email ou senha incorretos. Tente novamente.");
+ //   }
+ // }
+//
+ // // Função para exibir mensagem de erro
+ // void showErrorMessage(String message) {
+ //   ScaffoldMessenger.of(context).showSnackBar(
+ //     SnackBar(
+ //       content: Text(message),
+ //       backgroundColor: Colors.red,
+ //     ),
+ //   );
+ // }
+//
+ // // Função para exibir mensagem de sucesso
+ // void showSuccessMessage(String message) {
+ //   ScaffoldMessenger.of(context).showSnackBar(
+ //     SnackBar(
+ //       content: Text(message),
+ //       backgroundColor: Colors.green,
+ //     ),
+ //   );
+ // }
+//
+ // Widget customTextField(TextEditingController controller, String labelText, String hintText, bool obscureText) {
+ //   return Padding(
+ //     padding: const EdgeInsets.symmetric(horizontal: 24.0),
+ //     child: SizedBox(
+ //       height: 50,
+ //       child: TextField(
+  //        controller: controller,
+  //        obscureText: obscureText,
+  //        decoration: InputDecoration(
+  //          labelText: labelText,
+  //          labelStyle: TextStyle(color: Color(0x8FFFFFFF)),
+  //          border: OutlineInputBorder(),
+  //          hintText: hintText,
+  //          hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+  //          focusedBorder: OutlineInputBorder(
+  //            borderSide: BorderSide(
+  //              color: Color(0xFFC99856),
+  //            ),
+  //          ),
+  //          enabledBorder: OutlineInputBorder(
+  //            borderSide: BorderSide(color: Color(0xFFC99856)),
+  //            borderRadius: BorderRadius.circular(12),
+  //          ),
+  //        ),
+  //        style: TextStyle(
+  //          color: Color(0xFFFFFFFF),
+  //          fontSize: 18,
+  //        ),
+  //      ),
+  //    ),
+  //  );
+ // }
+//
+ // @override
+ // Widget build(BuildContext context) {
+ //   final screenWidth = MediaQuery.of(context).size.width;
+ //   final screenHeight = MediaQuery.of(context).size.height;
+//
+ //   return Scaffold(
+ //     body: GradientBackground(
+ //       child: Center(
+ //         child: Column(
+ //           crossAxisAlignment: CrossAxisAlignment.center,
+ //           children: [
+ //             Image.asset('assets/images/logo.png', 
+ //               width: screenWidth, 
+ //               height: screenHeight * 0.4, 
+ //               fit: BoxFit.cover,
+ //             ),
+//
+ //             // TÍTULO LOGIN
+ //             const SizedBox(height: 24),
+ //             Padding(
+ //               padding: const EdgeInsets.only(left: 24),
+ //               child: Row(
+ //                 children: [
+ //                   IconButton(
+ //                     icon: Icon(
+ //                       Icons.arrow_back_ios_new,
+ //                       color: Color(0xFFC99856),
+ //                     ),
+ //                     onPressed: () {
+ //                       Navigator.pushNamed(context, 'StartPage');
+ //                     },
+ //                   ),
+ //                   SizedBox(width: 18),
+//                    Text(
+ //                     'Log In',
+ //                     style: TextStyle(
+ //                       fontFamily: 'InriaSerif',
+ //                       fontWeight: FontWeight.bold,
+ //                       fontSize: 24,
+ //                       color: Color(0xFFC99856),
+ //                     ),
+ //                   ),
+ //                 ],
+ //               ),
+ //             ),
+//
+ //            const SizedBox(height: 24),
+ //             customTextField(emailController, 'Email', 'Informe seu email', false),
+//
+ //             const SizedBox(height: 18),
+ //             customTextField(passwordController, 'Senha', 'Informe sua senha', true),
+//
+ //             // ESQUECEU A SENHA?
+ //             const SizedBox(height: 18),
+ //             Padding(
+ //               padding: const EdgeInsets.only(left: 24.0),
+ //               child: GestureDetector(
+ //                 onTap: () {
+ //                   Navigator.pushNamed(context, 'PasswordRecoveryPage');
+ //                 },
+ //                 child: Align(
+ //                   alignment: Alignment.centerLeft,
+ //                   child: Text(
+ //                     'Esqueceu a senha?',
+ //                     style: TextStyle(
+ //                       fontFamily: 'InriaSerif',
+ //                       fontSize: 14,
+ //                       color: Color(0xFFC99856),
+ //                       decoration: TextDecoration.underline,
+ //                       decorationColor: Color(0xFFC99856),
+ //                     ),
+ //                   ),
+ //                 ),
+ //               ),
+ //             ),
+//
+ //             // BOTÃO LOGIN
+ //             const SizedBox(height: 12),
+ //             Padding(
+ //               padding: EdgeInsets.only(right: 24),
+ //               child: Row(
+ //                 mainAxisAlignment: MainAxisAlignment.end,
+ //                 children: [
+ //                   Container(
+ //                     height: 42,
+ //                     width: 138,
+ //                     child: ElevatedButton(
+ //                       style: ElevatedButton.styleFrom(
+ //                         backgroundColor: const Color(0xC8000000),
+ //                         shape: RoundedRectangleBorder(
+ //                           borderRadius: BorderRadius.circular(12),
+ //                         ),
+ //                       ),
+ //                       onPressed: loginUser,
+ //                       child: Text(
+ //                         'Log In',
+ //                         style: TextStyle(
+ //                           fontFamily: 'InriaSerif',
+ //                           fontWeight: FontWeight.bold,
+ //                           fontSize: 18,
+ //                           color: Color(0xFFC99856),
+ //                         ),
+ //                       ),
+ //                     ),
+ //                   ),
+ //                 ],
+ //               ),
+ //             ),
+ //           ],
+ //         ),
+ //       ),
+ //     ),
+ //   );
+ // }
+//}

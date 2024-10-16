@@ -146,3 +146,20 @@ class MenuPageState extends State<MenuPage> {
     );
   }
 }
+
+
+//BOTÃO PARA SELECIONAR ICONE DA SIDE BAR DO CARRINHO (SO PRA DEIXAR
+//ANOTADO PRO FELIPE)
+
+//appBar: AppBar(
+//  title: Text("Menu"),
+//  backgroundColor: const Color(0xFF1C343D),
+//  actions: [
+//    IconButton(
+//      icon: Icon(Icons.shopping_cart),
+//      onPressed: () {
+//        Scaffold.of(context).openDrawer();
+//      },
+//    ),
+//  ],
+//),
