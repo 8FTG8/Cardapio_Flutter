@@ -16,16 +16,16 @@ class CustomNavBar extends StatelessWidget {
       onTap: onTap,                 
       items: const [
         BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),      
+          label: 'Account',        
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.home),    
           label: 'Home',              
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart),  
           label: 'Cart',                   
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),      
-          label: 'Account',        
         ),
       ],
     );

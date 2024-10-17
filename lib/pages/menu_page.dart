@@ -39,41 +39,148 @@ class _MenuPageState extends State<MenuPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
+                    //ENTRADAS
                     SizedBox(height: 12),
                     DividerLabel(label: 'Entradas'),
-
                     _buildProductGrid([
                       ProductCard(
                         name: "Tagliatelle alla Crème Parmesan",
-                        price: "\$42",
+                        price: "\$58",
                         image: 'assets/images/entrada_1.png',
                         backgroundColor: Color(0xFF5B3B09),
                       ),
                       ProductCard(
                         name: "Medalhão de Filet Mignon au Poivre",
-                        price: "\$42",
+                        price: "\$64",
                         image: 'assets/images/entrada_2.png',
-                        backgroundColor: Color.fromARGB(99, 118, 2, 118),
+                        backgroundColor: Color(0xFF5B3B09),
                       ),
                     ]),
 
+                    //PRATOS
                     SizedBox(height: 12),
                     DividerLabel(label: 'Pratos'),
-
                     _buildProductGrid([
                       ProductCard(
                         name: "Frango Grelhado com Aspargos",
-                        price: "\$42",
+                        price: "\$83",
                         image: 'assets/images/prato_1.png',
                         backgroundColor: Color(0xFF021803),
                       ),
                       ProductCard(
                         name: "Filet Mignon com Aspargos",
-                        price: "\$42",
+                        price: "\$97",
                         image: 'assets/images/prato_2.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_3.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                       ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_4.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_5.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_6.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                    ]),
+
+                    //SOBREMESAS
+                    SizedBox(height: 12),
+                    DividerLabel(label: 'Sobremesas'),
+                    _buildProductGrid([
+                      ProductCard(
+                        name: "Title",
+                        price: "\$83",
+                        image: 'assets/images/sobremesa_1.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$97",
+                        image: 'assets/images/sobremesa_2.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_3.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                       ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_4.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_5.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_6.png',
+                        backgroundColor: Color(0x62760276),
+                      ),
+                    ]),
+
+                    //DRIKS
+                    SizedBox(height: 12),
+                    DividerLabel(label: 'Drinks'),
+                    _buildProductGrid([
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_1.png',
                         backgroundColor: Color(0xFF4A0009),
                       ),
-                      // Adicione mais ProductCard aqui conforme necessário
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_2.png',
+                        backgroundColor: Color(0xFF4A0009),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_3.png',
+                        backgroundColor: Color(0xFF4A0009),
+                      ),
+                       ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_4.png',
+                        backgroundColor: Color(0xFF4A0009),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_5.png',
+                        backgroundColor: Color(0xFF4A0009),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_6.png',
+                        backgroundColor: Color(0xFF4A0009),
+                      ),
                     ]),
                   ],
                 ),
@@ -96,18 +203,6 @@ class _MenuPageState extends State<MenuPage> {
                 MaterialPageRoute(builder: (context) => MenuPage()),
               );
               break;
-            /*case 2:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => SearchPage()),
-              );
-              break;
-            case 3:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => CartPage()),
-              );
-              break;*/
           }
         },
       ),
@@ -156,7 +251,7 @@ class _MenuPageState extends State<MenuPage> {
 
   Widget _buildProductGrid(List<Widget> productCards) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),

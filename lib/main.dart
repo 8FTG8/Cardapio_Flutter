@@ -9,7 +9,7 @@ import 'pages/start_page.dart';
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/menu_page.dart';
-import 'pages/cart_page.dart'; // Certifique-se de importar a página do carrinho
+import 'pages/cart_page.dart';
 import 'pages/product_details_page.dart';
 
 void main() {

@@ -21,8 +21,11 @@ class ProductCard extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(12.0),
       ),
+
+      //TÍTULO
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: ClipRRect(
@@ -37,6 +40,8 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           ),
+
+          //PREÇO
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -55,7 +60,7 @@ class ProductCard extends StatelessWidget {
                   price,
                   style: const TextStyle(
                     color: Colors.white70,
-                    fontSize: 14,
+                    fontSize: 16,
                   ),
                 ),
               ],
