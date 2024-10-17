@@ -13,7 +13,8 @@ class CustomNavBar extends StatelessWidget {
       selectedItemColor: Color(0xFFC99856), 
       unselectedItemColor: Colors.white,  
       currentIndex: selectedIndex,  
-      onTap: onTap,                 
+      onTap: onTap,       
+      iconSize: 30.0,
       items: const [
           BottomNavigationBarItem(
           icon: Icon(Icons.home_outlined),    
