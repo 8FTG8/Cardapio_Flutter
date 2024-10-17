@@ -12,6 +12,9 @@ import 'pages/menu_page.dart';
 import 'pages/cart_page.dart';
 import 'pages/product_details_page.dart';
 
+// Definição global de usuários registrados
+List<Map<String, String>> registeredUsers = []; // <-- Adicione isto
+
 void main() {
   runApp(
     DevicePreview(
