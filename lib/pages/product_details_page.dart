@@ -1,5 +1,6 @@
 import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
+import 'package:app_flutter/widgets/nav_bar.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final String productName;
@@ -153,25 +154,6 @@ class ProductDetailsPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF1C343D),
-        selectedItemColor: const Color(0xFFC99856),
-        unselectedItemColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-        ],
       ),
     );
   }

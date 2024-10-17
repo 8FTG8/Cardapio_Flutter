@@ -12,7 +12,7 @@ class CustomNavBar extends StatelessWidget {
       backgroundColor: Color(0xFF1E3C4F),
       selectedItemColor: Color(0xFFC99856),
       unselectedItemColor: Colors.white,
-      currentIndex: selectedIndex, //Índice da aba selecionada
+      currentIndex: selectedIndex,
       onTap: onTap,
       items: [
         BottomNavigationBarItem(
