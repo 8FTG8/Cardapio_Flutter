@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 
+// Lista global para armazenar usuários cadastrados
+List<Map<String, String>> registeredUsers = [];
+
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -14,9 +17,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-
-  // Lista para armazenar usuários cadastrados (simulação)
-  final List<Map<String, String>> registeredUsers = [];
 
   // Função para validar e cadastrar um novo usuário
   void registerUser() {
@@ -49,7 +49,14 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
 
-    // Armazenar usuário cadastrado na lista (simulação)
+    // Verificação se o e-mail já está cadastrado
+    bool emailExists = registeredUsers.any((user) => user['email'] == email);
+    if (emailExists) {
+      showErrorMessage("E-mail já cadastrado. Por favor, faça login.");
+      return;
+    }
+
+    // Armazenar usuário cadastrado na lista global
     registeredUsers.add({
       'name': name,
       'email': email,

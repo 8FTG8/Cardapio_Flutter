@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:app_flutter/main.dart'; // Para acessar a lista registeredUsers
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -20,8 +19,8 @@ class _LoginPageState extends State<LoginPage> {
 
   // Função para verificar login
   void loginUser() {
-    String email = emailController.text;
-    String password = passwordController.text;
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
 
     // Verificação se os campos estão preenchidos e se o e-mail é válido
     if (email.isEmpty || password.isEmpty) {
