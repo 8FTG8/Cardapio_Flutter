@@ -157,8 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                       const SizedBox(width: 18),
-                      const Text(
-                        'Sign Up',
+                      const Text('Sign Up',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontWeight: FontWeight.bold,

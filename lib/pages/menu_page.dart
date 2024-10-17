@@ -32,7 +32,6 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
-            _buildCategoryTabs(),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -58,7 +57,7 @@ class _MenuPageState extends State<MenuPage> {
                     ]),
 
                     //PRATOS
-                    SizedBox(height: 12),
+                    SizedBox(height: 16),
                     DividerLabel(label: 'Pratos'),
                     _buildProductGrid([
                       ProductCard(
@@ -79,7 +78,7 @@ class _MenuPageState extends State<MenuPage> {
                         image: 'assets/images/prato_3.png',
                         backgroundColor: Color(0xFF021803),
                       ),
-                       ProductCard(
+                      ProductCard(
                         name: "Title",
                         price: "\$00",
                         image: 'assets/images/prato_4.png',
@@ -97,10 +96,22 @@ class _MenuPageState extends State<MenuPage> {
                         image: 'assets/images/prato_6.png',
                         backgroundColor: Color(0xFF021803),
                       ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_7.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_8.png',
+                        backgroundColor: Color(0xFF021803),
+                      ),
                     ]),
 
                     //SOBREMESAS
-                    SizedBox(height: 12),
+                    SizedBox(height: 16),
                     DividerLabel(label: 'Sobremesas'),
                     _buildProductGrid([
                       ProductCard(
@@ -121,7 +132,7 @@ class _MenuPageState extends State<MenuPage> {
                         image: 'assets/images/sobremesa_3.png',
                         backgroundColor: Color(0x62760276),
                       ),
-                       ProductCard(
+                      ProductCard(
                         name: "Title",
                         price: "\$00",
                         image: 'assets/images/sobremesa_4.png',
@@ -141,8 +152,8 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     ]),
 
-                    //DRIKS
-                    SizedBox(height: 12),
+                    //DRINKS
+                    SizedBox(height: 16),
                     DividerLabel(label: 'Drinks'),
                     _buildProductGrid([
                       ProductCard(
@@ -163,7 +174,7 @@ class _MenuPageState extends State<MenuPage> {
                         image: 'assets/images/drink_3.png',
                         backgroundColor: Color(0xFF4A0009),
                       ),
-                       ProductCard(
+                      ProductCard(
                         name: "Title",
                         price: "\$00",
                         image: 'assets/images/drink_4.png',
@@ -182,6 +193,7 @@ class _MenuPageState extends State<MenuPage> {
                         backgroundColor: Color(0xFF4A0009),
                       ),
                     ]),
+                    SizedBox(height: 18),
                   ],
                 ),
               ),
@@ -205,46 +217,6 @@ class _MenuPageState extends State<MenuPage> {
               break;
           }
         },
-      ),
-    );
-  }
-
-  Widget _buildCategoryTabs() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildCategoryTab("Entradas", isActive: true),
-          _buildCategoryTab("Pratos"),
-          _buildCategoryTab("Sobremesas"),
-          _buildCategoryTab("Drinks"),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildCategoryTab(String title, {bool isActive = false}) {
-    return Text(
-      title,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: isActive ? Colors.white : Colors.white70,
-      ),
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white70,
-        ),
       ),
     );
   }

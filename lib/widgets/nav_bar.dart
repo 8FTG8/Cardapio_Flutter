@@ -15,17 +15,17 @@ class CustomNavBar extends StatelessWidget {
       currentIndex: selectedIndex,  
       onTap: onTap,                 
       items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle),      
-          label: 'Account',        
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),    
+          BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),    
           label: 'Home',              
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),  
+          BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart_outlined),  
           label: 'Cart',                   
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_outlined),      
+          label: 'Account',        
         ),
       ],
     );
