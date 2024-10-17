@@ -39,6 +39,7 @@ class _MenuPageState extends State<MenuPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
+                    SizedBox(height: 12),
                     DividerLabel(label: 'Entradas'),
 
                     _buildProductGrid([
@@ -46,16 +47,17 @@ class _MenuPageState extends State<MenuPage> {
                         name: "Tagliatelle alla Crème Parmesan",
                         price: "\$42",
                         image: 'assets/images/entrada_1.png',
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Color(0xFF5B3B09),
                       ),
                       ProductCard(
                         name: "Medalhão de Filet Mignon au Poivre",
                         price: "\$42",
                         image: 'assets/images/entrada_2.png',
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Color.fromARGB(99, 118, 2, 118),
                       ),
                     ]),
 
+                    SizedBox(height: 12),
                     DividerLabel(label: 'Pratos'),
 
                     _buildProductGrid([
@@ -63,13 +65,13 @@ class _MenuPageState extends State<MenuPage> {
                         name: "Frango Grelhado com Aspargos",
                         price: "\$42",
                         image: 'assets/images/prato_1.png',
-                        backgroundColor: Colors.green,
+                        backgroundColor: Color(0xFF021803),
                       ),
                       ProductCard(
                         name: "Filet Mignon com Aspargos",
                         price: "\$42",
                         image: 'assets/images/prato_2.png',
-                        backgroundColor: Colors.green,
+                        backgroundColor: Color(0xFF4A0009),
                       ),
                       // Adicione mais ProductCard aqui conforme necessário
                     ]),
@@ -87,22 +89,20 @@ class _MenuPageState extends State<MenuPage> {
             _currentIndex = index; // Atualiza o índice atual
           });
 
-          // Lógica para navegação baseada no índice
           switch (index) {
-            case 0:
+            case 1:
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => MenuPage()),
               );
               break;
-            // Adicione casos para outras páginas
-            /*case 1:
+            /*case 2:
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => SearchPage()),
               );
               break;
-            case 2:
+            case 3:
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => CartPage()),
