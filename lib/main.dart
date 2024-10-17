@@ -52,6 +52,7 @@ class MainApp extends StatelessWidget {
               productImage:         args['productImage'],
               rating:               args['rating'],
               orders:               args['orders'],
+              isPopular:            args['isPopular'],
             ),
           );
         }

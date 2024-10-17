@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/food_card.dart';
 import 'package:app_flutter/widgets/nav_bar.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
-
-import 'pages/product_details_page.dart';
+import 'product_details_page.dart'; // Certifique-se de importar a página de detalhes do produto
 
 class MenuPage extends StatefulWidget {
   @override
@@ -22,7 +21,7 @@ class _MenuPageState extends State<MenuPage> {
       body: GradientBackground(
         child: Column(
           children: [
-            AppBar(
+            /*AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: IconButton(
@@ -37,14 +36,15 @@ class _MenuPageState extends State<MenuPage> {
                   onPressed: () {},
                 ),
               ],
-            ),
+            ),*/
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
                     // Entradas
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 60),
                     DividerLabel(label: 'Entradas'),
                     _buildProductGrid([
                       ProductCard(
@@ -83,13 +83,452 @@ class _MenuPageState extends State<MenuPage> {
                                 productImage: 'assets/images/entrada_2.png',
                                 rating: 4.8,
                                 orders: 85,
+                                isPopular: true,
                               ),
                             ),
                           );
                         },
                       ),
                     ]),
-                    // Mais categorias comentadas (Pratos, Sobremesas, Drinks)
+
+                    //PRATOS
+                    SizedBox(height: 16),
+                    DividerLabel(label: 'Pratos'),
+                    _buildProductGrid([
+                      ProductCard(
+                        name: "Frango Grelhado com Aspargos",
+                        price: "\$83",
+                        image: 'assets/images/prato_1.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_1.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Filet Mignon com Aspargos",
+                        price: "\$97",
+                        image: 'assets/images/prato_2.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_3.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_3.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_5.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_6.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_5.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_7.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_6.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/prato_8.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_7.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/entrada_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/prato_8.png',
+                        backgroundColor: Color(0xFF021803),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/entrada_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ]),
+
+                    //SOBREMESAS
+                    SizedBox(height: 16),
+                    DividerLabel(label: 'Sobremesas'),
+                    _buildProductGrid([
+                      ProductCard(
+                        name: "Title",
+                        price: "\$83",
+                        image: 'assets/images/sobremesa_1.png',
+                        backgroundColor: Color(0x62760276),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_1.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$97",
+                        image: 'assets/images/sobremesa_2.png',
+                        backgroundColor: Color(0x62760276),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_3.png',
+                        backgroundColor: Color(0x62760276),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_3.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_4.png',
+                        backgroundColor: Color(0x62760276),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_4.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_5.png',
+                        backgroundColor: Color(0x62760276),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_5.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/sobremesa_6.png',
+                        backgroundColor: Color(0x62760276),
+                         onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/sobremesa_6.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ]),
+
+                    //DRINKS
+                    SizedBox(height: 16),
+                    DividerLabel(label: 'Drinks'),
+                    _buildProductGrid([
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_1.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_1.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_2.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_3.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_3.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_4.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_4.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_5.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_5.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      ProductCard(
+                        name: "Title",
+                        price: "\$00",
+                        image: 'assets/images/drink_6.png',
+                        backgroundColor: Color(0xFF4A0009),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Name",
+                                productDescription: "Description.",
+                                productImage: 'assets/images/drink_6.png',
+                                rating: 4.8,
+                                orders: 85,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ]),
+                    SizedBox(height: 12),
                   ],
                 ),
               ),

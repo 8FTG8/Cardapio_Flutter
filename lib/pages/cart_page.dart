@@ -18,11 +18,12 @@ class CartPage extends StatelessWidget {
             ],
           ),
         ),
+        
         child: Column(
           children: [
             // Header do Carrinho
             Container(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(24.0),
               width: double.infinity,
               color: const Color(0xFF1C343D),
               child: const Text('Carrinho de Compras',
