@@ -5,6 +5,8 @@ import 'package:app_flutter/widgets/food_card.dart';
 import 'package:app_flutter/widgets/nav_bar.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 
+import 'pages/product_details_page.dart';
+
 class MenuPage extends StatefulWidget {
   @override
   _MenuPageState createState() => _MenuPageState();
@@ -16,20 +18,19 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: CartPage(),
-
+      endDrawer: CartPage(), // Certifique-se de que CartPage é um Drawer ou ajustável
       body: GradientBackground(
         child: Column(
           children: [
             AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
-
               leading: IconButton(
                 icon: const Icon(Icons.menu),
-                onPressed: () {},
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer(); // Abre o Drawer
+                },
               ),
-
               actions: [
                 IconButton(
                   icon: const Icon(Icons.search),
@@ -37,169 +38,58 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
-
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    //ENTRADAS
-                    SizedBox(height: 12),
+                    // Entradas
+                    const SizedBox(height: 12),
                     DividerLabel(label: 'Entradas'),
                     _buildProductGrid([
                       ProductCard(
                         name: "Tagliatelle alla Crème Parmesan",
                         price: "\$58",
                         image: 'assets/images/entrada_1.png',
-                        backgroundColor: Color(0xFF5B3B09),
+                        backgroundColor: const Color(0xFF5B3B09),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Tagliatelle alla Crème Parmesan",
+                                productDescription: "Delicious pasta with parmesan sauce.",
+                                productImage: 'assets/images/entrada_1.png',
+                                rating: 4.5,
+                                orders: 120,
+                                isPopular: true,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       ProductCard(
                         name: "Medalhão de Filet Mignon au Poivre",
                         price: "\$64",
                         image: 'assets/images/entrada_2.png',
-                        backgroundColor: Color(0xFF5B3B09),
+                        backgroundColor: const Color(0xFF5B3B09),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailsPage(
+                                productName: "Medalhão de Filet Mignon au Poivre",
+                                productDescription: "Juicy filet mignon with pepper sauce.",
+                                productImage: 'assets/images/entrada_2.png',
+                                rating: 4.8,
+                                orders: 85,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ]),
-
-                    //PRATOS
-                    SizedBox(height: 16),
-                    DividerLabel(label: 'Pratos'),
-                    _buildProductGrid([
-                      ProductCard(
-                        name: "Frango Grelhado com Aspargos",
-                        price: "\$83",
-                        image: 'assets/images/prato_1.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Filet Mignon com Aspargos",
-                        price: "\$97",
-                        image: 'assets/images/prato_2.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_3.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_4.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_5.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_6.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_7.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/prato_8.png',
-                        backgroundColor: Color(0xFF021803),
-                      ),
-                    ]),
-
-                    //SOBREMESAS
-                    SizedBox(height: 16),
-                    DividerLabel(label: 'Sobremesas'),
-                    _buildProductGrid([
-                      ProductCard(
-                        name: "Title",
-                        price: "\$83",
-                        image: 'assets/images/sobremesa_1.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$97",
-                        image: 'assets/images/sobremesa_2.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/sobremesa_3.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/sobremesa_4.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/sobremesa_5.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/sobremesa_6.png',
-                        backgroundColor: Color(0x62760276),
-                      ),
-                    ]),
-
-                    //DRINKS
-                    SizedBox(height: 16),
-                    DividerLabel(label: 'Drinks'),
-                    _buildProductGrid([
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_1.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_2.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_3.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_4.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_5.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                      ProductCard(
-                        name: "Title",
-                        price: "\$00",
-                        image: 'assets/images/drink_6.png',
-                        backgroundColor: Color(0xFF4A0009),
-                      ),
-                    ]),
-                    SizedBox(height: 18),
+                    // Mais categorias comentadas (Pratos, Sobremesas, Drinks)
                   ],
                 ),
               ),
@@ -213,14 +103,11 @@ class _MenuPageState extends State<MenuPage> {
           setState(() {
             _currentIndex = index; // Atualiza o índice atual
           });
-
-          switch (index) {
-            case 1:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => MenuPage()),
-              );
-              break;
+          if (index == 1) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MenuPage()),
+            );
           }
         },
       ),

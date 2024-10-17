@@ -39,8 +39,8 @@ class CartPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  _buildCartItem('Produto 1', 'assets/images/produto_1.png', 2, 19.99),
-                  _buildCartItem('Produto 2', 'assets/images/produto_2.png', 1, 49.99),
+                  _buildCartItem('Produto 1', 'assets/images/prato_1.png', 2, 19.99),
+                  _buildCartItem('Produto 2', 'assets/images/prato_2.png', 1, 49.99),
                   // Adicione mais itens de exemplo conforme necessário
                 ],
               ),
@@ -122,7 +122,6 @@ class CartPage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Row(
           children: [
-            // Imagem do Produto
             Image.asset(
               productImage,
               width: 20,

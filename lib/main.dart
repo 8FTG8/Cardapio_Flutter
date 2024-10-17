@@ -47,11 +47,11 @@ class MainApp extends StatelessWidget {
           final args = settings.arguments as Map<String, dynamic>;
           return MaterialPageRoute(
             builder: (context) => ProductDetailsPage(
-              productName: args['productName'],
-              productDescription: args['productDescription'],
-              productImage: args['productImage'],
-              rating: args['rating'],
-              orders: args['orders'],
+              productName:          args['productName'],
+              productDescription:   args['productDescription'],
+              productImage:         args['productImage'],
+              rating:               args['rating'],
+              orders:               args['orders'],
             ),
           );
         }

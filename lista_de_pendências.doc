@@ -4,3 +4,7 @@
 -> Componentizar text_button;
 -> Componentizar elevated_button;
 -> Melhorar divider;
+-> Adição carrinho;
+-> Exclusão carrinho;
+-> Finalizar pedido;
+-> Validação de login;

@@ -11,14 +11,14 @@ class ProductDetailsPage extends StatelessWidget {
   final bool isPopular;
 
   const ProductDetailsPage({
-    super.key,
     required this.productName,
     required this.productDescription,
     required this.productImage,
     required this.rating,
     required this.orders,
-    this.isPopular = false,
-  });
+    required this.isPopular,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,8 @@ class ProductDetailsPage extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset(productImage,
+                  Image.asset(
+                    productImage,
                     width: screenWidth,
                     height: screenHeight * 0.4,
                     fit: BoxFit.cover,
