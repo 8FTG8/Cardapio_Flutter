@@ -1,3 +1,4 @@
+import 'package:app_flutter/pages/cart_page.dart';
 import 'package:app_flutter/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/food_card.dart';
@@ -15,16 +16,20 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: CartPage(),
+
       body: GradientBackground(
         child: Column(
           children: [
             AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
+
               leading: IconButton(
                 icon: const Icon(Icons.menu),
                 onPressed: () {},
               ),
+
               actions: [
                 IconButton(
                   icon: const Icon(Icons.search),
@@ -32,6 +37,7 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
+
             Expanded(
               child: SingleChildScrollView(
                 child: Column(

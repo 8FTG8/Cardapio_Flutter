@@ -43,21 +43,21 @@ class ProductCard extends StatelessWidget {
 
           //PREÇO
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  name,
+                
+                Text(name,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
+
                 const SizedBox(height: 4),
-                Text(
-                  price,
+                Text(price,
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 16,

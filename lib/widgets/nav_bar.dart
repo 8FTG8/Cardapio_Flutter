@@ -9,24 +9,30 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Color(0xFF0D0F14), 
-      selectedItemColor: Color(0xFFC99856), 
-      unselectedItemColor: Colors.white,  
-      currentIndex: selectedIndex,  
-      onTap: onTap,       
+      backgroundColor: Color(0xFF0D0F14),
+      selectedItemColor: Color(0xFFC99856),
+      unselectedItemColor: Colors.white,
+      currentIndex: selectedIndex,
+      onTap: (index) {
+        if (index == 1) {
+          Scaffold.of(context).openEndDrawer();
+        } else {
+          onTap(index);
+        }
+      },
       iconSize: 30.0,
       items: const [
-          BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),    
-          label: 'Home',              
-        ),
-          BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart_outlined),  
-          label: 'Cart',                   
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle_outlined),      
-          label: 'Account',        
+          icon: Icon(Icons.shopping_cart_outlined),
+          label: 'Cart',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_outlined),
+          label: 'Account',
         ),
       ],
     );

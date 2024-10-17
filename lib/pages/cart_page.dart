@@ -25,8 +25,7 @@ class CartPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               width: double.infinity,
               color: const Color(0xFF1C343D),
-              child: const Text(
-                'Carrinho de Compras',
+              child: const Text('Carrinho de Compras',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontWeight: FontWeight.bold,
@@ -40,8 +39,8 @@ class CartPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  _buildCartItem('Produto 1', 'assets/images/produto1.png', 2, 19.99),
-                  _buildCartItem('Produto 2', 'assets/images/produto2.png', 1, 49.99),
+                  _buildCartItem('Produto 1', 'assets/images/produto_1.png', 2, 19.99),
+                  _buildCartItem('Produto 2', 'assets/images/produto_2.png', 1, 49.99),
                   // Adicione mais itens de exemplo conforme necessário
                 ],
               ),
@@ -126,8 +125,8 @@ class CartPage extends StatelessWidget {
             // Imagem do Produto
             Image.asset(
               productImage,
-              width: 60,
-              height: 60,
+              width: 20,
+              height: 20,
               fit: BoxFit.cover,
             ),
             const SizedBox(width: 10),
