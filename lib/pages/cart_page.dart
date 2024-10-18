@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
 
-class CartPage extends StatelessWidget {
+// Classe para representar um item no carrinho
+class CartItem {
+  final String productName;
+  final String productImage;
+  int quantity;
+  final double price;
+
+  CartItem({
+    required this.productName,
+    required this.productImage,
+    required this.quantity,
+    required this.price,
+  });
+}
+
+// Lista global para armazenar itens do carrinho
+List<CartItem> cartItems = [];
+
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
+  @override
+  _CartPageState createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,7 +41,6 @@ class CartPage extends StatelessWidget {
             ],
           ),
         ),
-        
         child: Column(
           children: [
             // Header do Carrinho
@@ -26,7 +48,8 @@ class CartPage extends StatelessWidget {
               padding: const EdgeInsets.all(24.0),
               width: double.infinity,
               color: const Color(0xFF1C343D),
-              child: const Text('Carrinho de Compras',
+              child: const Text(
+                'Carrinho de Compras',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontWeight: FontWeight.bold,
@@ -35,18 +58,23 @@ class CartPage extends StatelessWidget {
                 ),
               ),
             ),
-            
             // Lista de Produtos no Carrinho
             Expanded(
-              child: ListView(
-                children: [
-                  _buildCartItem('Produto 1', 'assets/images/prato_1.png', 2, 19.99),
-                  _buildCartItem('Produto 2', 'assets/images/prato_2.png', 1, 49.99),
-                  // Adicione mais itens de exemplo conforme necessário
-                ],
-              ),
+              child: cartItems.isEmpty
+                  ? const Center(
+                      child: Text(
+                        'Seu carrinho está vazio',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: cartItems.length,
+                      itemBuilder: (context, index) {
+                        final item = cartItems[index];
+                        return _buildCartItem(item, index);
+                      },
+                    ),
             ),
-
             // Seção de Total e Finalizar Compra
             Container(
               padding: const EdgeInsets.all(16.0),
@@ -60,8 +88,8 @@ class CartPage extends StatelessWidget {
                   // Total do Carrinho
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'Total:',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
@@ -71,8 +99,8 @@ class CartPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'R\$ 89.97',
-                        style: TextStyle(
+                        'R\$ ${_calculateTotal().toStringAsFixed(2)}',
+                        style: const TextStyle(
                           fontFamily: 'InriaSerif',
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -81,9 +109,7 @@ class CartPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  
                   const SizedBox(height: 12),
-                  
                   // Botão de Finalizar Compra
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -95,9 +121,10 @@ class CartPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Ação para finalizar compra
+                      _showOrderConfirmation();
                     },
                     child: const Text(
-                      'Finalizar Compra',
+                      'Finalizar Pedido',
                       style: TextStyle(
                         fontFamily: 'InriaSerif',
                         fontWeight: FontWeight.bold,
@@ -116,7 +143,7 @@ class CartPage extends StatelessWidget {
   }
 
   // Widget para construir cada item no carrinho
-  Widget _buildCartItem(String productName, String productImage, int quantity, double price) {
+  Widget _buildCartItem(CartItem item, int index) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Padding(
@@ -124,20 +151,19 @@ class CartPage extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              productImage,
-              width: 20,
-              height: 20,
+              item.productImage,
+              width: 50,
+              height: 50,
               fit: BoxFit.cover,
             ),
             const SizedBox(width: 10),
-
             // Detalhes do Produto
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    productName,
+                    item.productName,
                     style: const TextStyle(
                       fontFamily: 'InriaSerif',
                       fontWeight: FontWeight.bold,
@@ -146,7 +172,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Qtd: $quantity',
+                    'Qtd: ${item.quantity}',
                     style: const TextStyle(
                       fontFamily: 'InriaSerif',
                       fontSize: 14,
@@ -154,7 +180,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'R\$ ${(price * quantity).toStringAsFixed(2)}',
+                    'R\$ ${(item.price * item.quantity).toStringAsFixed(2)}',
                     style: const TextStyle(
                       fontFamily: 'InriaSerif',
                       fontWeight: FontWeight.bold,
@@ -165,17 +191,53 @@ class CartPage extends StatelessWidget {
                 ],
               ),
             ),
-
             // Botão de Remover
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: () {
-                // Ação para remover item do carrinho
+                _removeItemFromCart(index);
               },
             ),
           ],
         ),
       ),
+    );
+  }
+
+  // Função para calcular o total do carrinho
+  double _calculateTotal() {
+    double total = 0.0;
+    for (var item in cartItems) {
+      total += item.price * item.quantity;
+    }
+    return total;
+  }
+
+  // Função para remover item do carrinho
+  void _removeItemFromCart(int index) {
+    setState(() {
+      cartItems.removeAt(index);
+    });
+  }
+
+  // Função para mostrar confirmação de pedido
+  void _showOrderConfirmation() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Pedido Finalizado'),
+          content: const Text('Seu pedido foi finalizado com sucesso!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

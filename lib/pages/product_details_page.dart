@@ -2,7 +2,10 @@ import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/nav_bar.dart';
 
-class ProductDetailsPage extends StatelessWidget {
+// Importando a lista global de itens do carrinho
+import 'cart_page.dart';
+
+class ProductDetailsPage extends StatefulWidget {
   final String productName;
   final String productDescription;
   final String productImage;
@@ -21,6 +24,13 @@ class ProductDetailsPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _ProductDetailsPageState createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  int quantity = 1; // Quantidade inicial
+
+  @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -34,7 +44,7 @@ class ProductDetailsPage extends StatelessWidget {
               Stack(
                 children: [
                   Image.asset(
-                    productImage,
+                    widget.productImage,
                     width: screenWidth,
                     height: screenHeight * 0.4,
                     fit: BoxFit.cover,
@@ -73,7 +83,7 @@ class ProductDetailsPage extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Seção de "Popular"
-                    if (isPopular)
+                    if (widget.isPopular)
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
@@ -89,7 +99,7 @@ class ProductDetailsPage extends StatelessWidget {
 
                     // Nome do produto
                     Text(
-                      productName,
+                      widget.productName,
                       style: const TextStyle(
                         fontFamily: 'InriaSerif',
                         fontSize: 24,
@@ -105,12 +115,12 @@ class ProductDetailsPage extends StatelessWidget {
                         const Icon(Icons.star, color: Color(0xFFC99856), size: 20),
                         const SizedBox(width: 4),
                         Text(
-                          '$rating Rating',
+                          '${widget.rating} Rating',
                           style: const TextStyle(color: Colors.white, fontSize: 14),
                         ),
                         const SizedBox(width: 16),
                         Text(
-                          '$orders+ Orders',
+                          '${widget.orders}+ Orders',
                           style: const TextStyle(color: Colors.white, fontSize: 14),
                         ),
                       ],
@@ -119,11 +129,42 @@ class ProductDetailsPage extends StatelessWidget {
 
                     // Descrição do produto
                     Text(
-                      productDescription,
+                      widget.productDescription,
                       style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     const SizedBox(height: 24),
-                    
+
+                    // Seção para selecionar a quantidade
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.remove),
+                          onPressed: () {
+                            setState(() {
+                              if (quantity > 1) quantity--;
+                            });
+                          },
+                        ),
+                        Text(
+                          '$quantity',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.add),
+                          onPressed: () {
+                            setState(() {
+                              quantity++;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+
                     // Botão "Adicionar ao Carrinho"
                     Center(
                       child: ElevatedButton(
@@ -135,7 +176,18 @@ class ProductDetailsPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // Lógica para adicionar ao carrinho
+                          // Adiciona o produto ao carrinho
+                          cartItems.add(CartItem(
+                            productName: widget.productName,
+                            productImage: widget.productImage,
+                            quantity: quantity,
+                            price: 20.0, // Substitua pelo preço real do produto
+                          ));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('$quantity ${widget.productName} adicionado ao carrinho!'),
+                            ),
+                          );
                         },
                         child: const Text(
                           'Add to Cart',
