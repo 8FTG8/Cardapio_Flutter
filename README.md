@@ -1,3 +1,5 @@
-# aula_flutter_3
+# Projeto P1 - Cardápio 01
+Programação Para Dispositivos Móveis
 
-A new Flutter project.
+Lucas Nunes da Silveira - RA 2840482311030.
+Felipe Tavares Granvile - RA 2840482311006.
