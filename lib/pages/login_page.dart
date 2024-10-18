@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
-import 'package:app_flutter/main.dart'; // Para acessar a lista global registeredUsers
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,19 +9,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Controladores de texto para capturar dados de entrada
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // Expressão regular para validar formato de e-mail
   final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
-  // Função para verificar login
   void loginUser() {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
-    // Verificação se os campos estão preenchidos e se o e-mail é válido
     if (email.isEmpty || password.isEmpty) {
       showErrorMessage("Por favor, preencha todos os campos.");
       return;
@@ -33,20 +28,12 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    // Verificação se o usuário está cadastrado
-    bool userFound = registeredUsers.any((user) =>
-        user['email'] == email && user['password'] == password);
-
-    if (userFound) {
-      showSuccessMessage("Login realizado com sucesso!");
-      // Navegar para a página principal ou de menu após login
-      Navigator.pushNamed(context, 'MenuPage');
-    } else {
-      showErrorMessage("Email ou senha incorretos. Tente novamente.");
-    }
+    // Se todos os requisitos forem atendidos, login bem-sucedido
+    showSuccessMessage("Login realizado com sucesso!");
+    // Navegar para a página principal ou de menu após login
+    Navigator.pushNamed(context, 'MenuPage');
   }
 
-  // Função para exibir mensagem de erro
   void showErrorMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -56,7 +43,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Função para exibir mensagem de sucesso
   void showSuccessMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -117,8 +103,6 @@ class _LoginPageState extends State<LoginPage> {
                   height: screenHeight * 0.4,
                   fit: BoxFit.cover,
                 ),
-
-                // TÍTULO LOGIN
                 const SizedBox(height: 24),
                 Padding(
                   padding: const EdgeInsets.only(left: 24),
@@ -146,14 +130,10 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 24),
                 customTextField(emailController, 'Email', 'Informe seu email', false),
-
                 const SizedBox(height: 18),
                 customTextField(passwordController, 'Senha', 'Informe sua senha', true),
-
-                // ESQUECEU A SENHA?
                 const SizedBox(height: 18),
                 Padding(
                   padding: const EdgeInsets.only(left: 24.0),
@@ -176,8 +156,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-
-                // BOTÃO LOGIN
                 const SizedBox(height: 12),
                 Padding(
                   padding: const EdgeInsets.only(right: 24),

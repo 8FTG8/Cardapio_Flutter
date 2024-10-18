@@ -120,8 +120,8 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ),
                     onPressed: () {
-                      // Ação para finalizar compra
-                      _showOrderConfirmation();
+                      // Ação para mostrar resumo do pedido
+                      _showOrderSummary();
                     },
                     child: const Text(
                       'Finalizar Pedido',
@@ -220,20 +220,103 @@ class _CartPageState extends State<CartPage> {
     });
   }
 
-  // Função para mostrar confirmação de pedido
-  void _showOrderConfirmation() {
+  // Função para mostrar resumo do pedido
+  void _showOrderSummary() {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Pedido Finalizado'),
-          content: const Text('Seu pedido foi finalizado com sucesso!'),
+          title: const Text('Resumo do Pedido'),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Lista de produtos no resumo
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: cartItems.length,
+                  itemBuilder: (context, index) {
+                    final item = cartItems[index];
+                    return Text(
+                      '${item.productName} - Qtd: ${item.quantity} - R\$ ${(item.price * item.quantity).toStringAsFixed(2)}',
+                      style: const TextStyle(fontSize: 16),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                // Total do pedido
+                Text(
+                  'Total: R\$ ${_calculateTotal().toStringAsFixed(2)}',
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ],
+            ),
+          ),
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(); // Fecha o resumo do pedido
+              },
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                _confirmOrder();
+              },
+              child: const Text('Confirmar Pedido'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Função para confirmar o pedido
+  void _confirmOrder() {
+    Navigator.of(context).pop(); // Fecha o resumo do pedido
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Pedido Realizado'),
+          content: const Text('Pedido realizado com sucesso!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Fecha a mensagem de sucesso
+                _showRatingPrompt(); // Chama a função para perguntar sobre a avaliação
               },
               child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Função para perguntar ao usuário se deseja avaliar o pedido
+  void _showRatingPrompt() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Avaliar Pedido'),
+          content: const Text('Você gostaria de avaliar seu pedido?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Fecha a pergunta
+                Navigator.pushNamed(context, 'RatingPage'); // Navega para a página de avaliação
+              },
+              child: const Text('Sim'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Fecha a pergunta
+              },
+              child: const Text('Não'),
             ),
           ],
         );

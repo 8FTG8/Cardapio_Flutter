@@ -1,5 +1,5 @@
-//DESIGN: FINALIZADO 
-//FUNCIONALIDADES: NÃO FINALIZADO
+//
+//
 
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';

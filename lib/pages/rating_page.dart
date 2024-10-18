@@ -17,7 +17,7 @@ class _RatingPageState extends State<RatingPage> {
   final TextEditingController _feedbackController = TextEditingController();
 
   Widget customButton(String text, VoidCallback onPressed) {
-    return  SizedBox(
+    return SizedBox(
       height: 48,
       width: double.infinity,
       child: ElevatedButton(
@@ -28,7 +28,8 @@ class _RatingPageState extends State<RatingPage> {
           ),
         ),
         onPressed: onPressed,
-        child: Text(text,
+        child: Text(
+          text,
           style: TextStyle(
             fontFamily: 'InriaSerif',
             fontWeight: FontWeight.bold,
@@ -40,6 +41,28 @@ class _RatingPageState extends State<RatingPage> {
     );
   }
 
+  void _showFeedbackDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Feedback recebido'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('FeedBack recebido com sucesso! Obrigado!'),
+              const SizedBox(height: 20),
+              customButton('Voltar ao Menu', () { // Texto encurtado aqui
+                Navigator.of(context).pop(); // Fecha o diálogo
+                Navigator.pushNamed(context, 'MenuPage'); // Leva o usuário ao MenuPage
+              }),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +70,13 @@ class _RatingPageState extends State<RatingPage> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, //Alinhamento vertical
-            crossAxisAlignment: CrossAxisAlignment.center, //Alinhamento horizontal
+            mainAxisAlignment: MainAxisAlignment.center, // Alinhamento vertical
+            crossAxisAlignment: CrossAxisAlignment.center, // Alinhamento horizontal
             children: [
-
-              //AVALIE NOSSO SERVIÇO
+              // AVALIE NOSSO SERVIÇO
               const SizedBox(height: 42),
-              const Text('Avalie nosso serviço!',
+              const Text(
+                'Avalie nosso serviço!',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontWeight: FontWeight.bold,
@@ -62,17 +85,16 @@ class _RatingPageState extends State<RatingPage> {
                 ),
               ),
 
-              //ESTRELAS DE AVALIAÇÃO
+              // ESTRELAS DE AVALIAÇÃO
               const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(5, (index) {
                   return IconButton(
                     icon: Icon(
-                      index < _rating
-                          ? Icons.star
-                          : Icons.star_border,
-                      color: const Color(0xFFE29E46)),
+                      index < _rating ? Icons.star : Icons.star_border,
+                      color: const Color(0xFFE29E46),
+                    ),
                     onPressed: () {
                       setState(() {
                         _rating = index + 1.0; // Define a nota escolhida
@@ -81,42 +103,43 @@ class _RatingPageState extends State<RatingPage> {
                   );
                 }),
               ),
-              
-              //DEIXE SEU FEEDBACK
+
+              // DEIXE SEU FEEDBACK
               const SizedBox(height: 18),
-              const Text('Deixe seu feedback:',
+              const Text(
+                'Deixe seu feedback:',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                 ),
               ),
 
-              //CAMPO DE ESCREVER O FEEDBACK
+              // CAMPO DE ESCREVER O FEEDBACK
               const SizedBox(height: 12),
               TextField(
-                  controller: _feedbackController,
-                  maxLines: 6,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Escreva seu feedback aqui...',
-                    hintStyle: const TextStyle(color: Colors.grey),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Color(0xFFC99856),
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Color(0xFFC99856)),
-                      borderRadius: BorderRadius.circular(12)
-                    ),
+                controller: _feedbackController,
+                maxLines: 6,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Escreva seu feedback aqui...',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xFFC99856)),
                   ),
-                  style: const TextStyle(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xFFC99856)),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
+                style: const TextStyle(color: Colors.white),
+              ),
 
-              //BOTÃO ENVIAR AVALIAÇÃO
+              // BOTÃO ENVIAR AVALIAÇÃO
               const SizedBox(height: 24),
               customButton('Enviar Avaliação', () {
                 print('Avaliação: $_rating');
                 print('Feedback: ${_feedbackController.text}');
+                _showFeedbackDialog(); // Mostra o diálogo de feedback
               }),
 
               // BOTÃO DE VOLTAR
@@ -124,8 +147,9 @@ class _RatingPageState extends State<RatingPage> {
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, 'MenuPage');
-                  },
-                child: Text('Não desejo avaliar!',
+                },
+                child: Text(
+                  'Não desejo avaliar!',
                   style: TextStyle(
                     fontFamily: 'InriaSerif',
                     fontSize: 18,
