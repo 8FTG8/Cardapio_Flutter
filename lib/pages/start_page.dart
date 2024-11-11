@@ -1,6 +1,3 @@
-//
-//
-
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 //import 'package:get_it/get_it.dart';
@@ -127,7 +124,9 @@ class _StartPageState extends State<StartPage> {
               Text('By clicking continue, you agree to our',
                 style: TextStyle(
                   fontSize: 12, 
-                  color: Colors.grey)),
+                  color: Colors.grey
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [

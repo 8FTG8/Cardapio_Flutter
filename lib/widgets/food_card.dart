@@ -13,8 +13,8 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.onTap,
     this.backgroundColor = const Color(0xFF3E4A50), // Cor padrão
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

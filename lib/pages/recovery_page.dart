@@ -1,6 +1,3 @@
-//DESIGN: FINALIZADO 
-//FUNCIONALIDADES: NÃO FINALIZADO
-
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 //import 'package:get_it/get_it.dart';
@@ -61,8 +58,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                   children: [
                     // Title
                     SizedBox(height: 24),
-                    Text(
-                      'Recuperar Senha',
+                    Text('Recuperar Senha',
                       style: TextStyle(
                         fontFamily: 'InriaSerif',
                         fontWeight: FontWeight.bold,

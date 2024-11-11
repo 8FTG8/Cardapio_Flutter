@@ -97,12 +97,12 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
+                Image.asset('assets/images/logo.png',
                   width: screenWidth,
                   height: screenHeight * 0.4,
                   fit: BoxFit.cover,
                 ),
+
                 const SizedBox(height: 24),
                 Padding(
                   padding: const EdgeInsets.only(left: 24),
@@ -117,9 +117,9 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushNamed(context, 'StartPage');
                         },
                       ),
+
                       const SizedBox(width: 18),
-                      const Text(
-                        'Log In',
+                      const Text('Log In',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontWeight: FontWeight.bold,
@@ -130,10 +130,13 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
+
                 const SizedBox(height: 24),
                 customTextField(emailController, 'Email', 'Informe seu email', false),
+
                 const SizedBox(height: 18),
                 customTextField(passwordController, 'Senha', 'Informe sua senha', true),
+
                 const SizedBox(height: 18),
                 Padding(
                   padding: const EdgeInsets.only(left: 24.0),
@@ -156,13 +159,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 12),
                 Padding(
                   padding: const EdgeInsets.only(right: 24),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
+                      SizedBox(
                         height: 42,
                         width: 138,
                         child: ElevatedButton(
@@ -173,8 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           onPressed: loginUser,
-                          child: const Text(
-                            'Log In',
+                          child: const Text('Log In',
                             style: TextStyle(
                               fontFamily: 'InriaSerif',
                               fontWeight: FontWeight.bold,

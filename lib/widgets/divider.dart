@@ -6,11 +6,11 @@ class DividerLabel extends StatelessWidget {
   final Color dividerColor;
 
   const DividerLabel({
-    Key? key,
+    super.key,
     required this.label,
     this.dividerWidth = 96.0,
     this.dividerColor = Colors.white,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

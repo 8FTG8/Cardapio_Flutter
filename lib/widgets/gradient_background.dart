@@ -1,5 +1,4 @@
 // ignore_for_file: use_super_parameters
-
 import 'package:flutter/material.dart';
 
 class GradientBackground extends StatelessWidget {

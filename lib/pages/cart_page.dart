@@ -75,6 +75,7 @@ class _CartPageState extends State<CartPage> {
                       },
                     ),
             ),
+            
             // Seção de Total e Finalizar Compra
             Container(
               padding: const EdgeInsets.all(16.0),

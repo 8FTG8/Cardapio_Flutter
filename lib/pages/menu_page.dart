@@ -7,6 +7,8 @@ import 'package:app_flutter/widgets/gradient_background.dart';
 import 'product_details_page.dart'; // Certifique-se de importar a página de detalhes do produto
 
 class MenuPage extends StatefulWidget {
+  const MenuPage({super.key});
+
   @override
   _MenuPageState createState() => _MenuPageState();
 }
@@ -17,7 +19,7 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: CartPage(), // Certifique-se de que CartPage é um Drawer ou ajustável
+      endDrawer: CartPage(),
       body: GradientBackground(
         child: Column(
           children: [

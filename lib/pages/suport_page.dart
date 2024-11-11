@@ -1,6 +1,3 @@
-//DESIGN: FINALIZADO 
-//FUNCIONALIDADES: NÃO FINALIZADO
-
 import 'package:flutter/material.dart';
 
 class SupportPage extends StatefulWidget {
@@ -29,11 +26,12 @@ class _SupportPageState extends State<SupportPage> {
             ],
           ),
         ),
+        
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // LOGO
+              //LOGO
               Image.asset(
                 'assets/images/logo.png',
                 width: screenWidth * 0.8,
@@ -41,9 +39,8 @@ class _SupportPageState extends State<SupportPage> {
                 fit: BoxFit.cover,
               ),
 
+              //TÍTULO
               const SizedBox(height: 24),
-
-              // TÍTULO
               const Text(
                 'Suporte',
                 style: TextStyle(
@@ -54,9 +51,8 @@ class _SupportPageState extends State<SupportPage> {
                 ),
               ),
 
+              //DESCRIÇÃO
               const SizedBox(height: 24),
-
-              // DESCRIÇÃO
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Text(
@@ -70,9 +66,8 @@ class _SupportPageState extends State<SupportPage> {
                 ),
               ),
 
+              //E-MAIL
               const SizedBox(height: 24),
-
-              // E-MAIL
               const Text(
                 'Email: suporte@exemplo.com',
                 style: TextStyle(
@@ -82,9 +77,8 @@ class _SupportPageState extends State<SupportPage> {
                 ),
               ),
 
+              //TELEFONE
               const SizedBox(height: 12),
-
-              // TELEFONE
               const Text(
                 'Telefone: (00) 12345-6789',
                 style: TextStyle(
@@ -94,9 +88,8 @@ class _SupportPageState extends State<SupportPage> {
                 ),
               ),
 
+              //BOTÃO DE VOLTAR
               const SizedBox(height: 24),
-
-              // BOTÃO DE VOLTAR
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xC8000000),

@@ -43,8 +43,8 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
 
-    // Verificação se a senha possui critérios básicos de segurança (mínimo 6 caracteres)
-    if (password.length < 6) {
+    // Verificação se a senha possui critérios básicos de segurança (mínimo 8 caracteres)
+    if (password.length < 8) {
       showErrorMessage("A senha deve ter no mínimo 6 caracteres.");
       return;
     }
@@ -195,7 +195,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
+                      SizedBox(
                         height: 42,
                         width: 138,
                         child: ElevatedButton(

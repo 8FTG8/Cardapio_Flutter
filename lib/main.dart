@@ -12,15 +12,11 @@ import 'pages/menu_page.dart';
 import 'pages/cart_page.dart';
 import 'pages/product_details_page.dart';
 
-
-
-
 // Definição global de usuários registrados
 List<Map<String, String>> registeredUsers = []; 
 
 // Estrutura do carrinho para armazenar produtos selecionados
 List<Map<String, dynamic>> cartItems = [];
-
 
 void main() {
   runApp(

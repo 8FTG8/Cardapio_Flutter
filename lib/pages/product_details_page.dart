@@ -20,8 +20,8 @@ class ProductDetailsPage extends StatefulWidget {
     required this.rating,
     required this.orders,
     required this.isPopular,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _ProductDetailsPageState createState() => _ProductDetailsPageState();
