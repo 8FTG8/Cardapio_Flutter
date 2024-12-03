@@ -30,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
 
     // Se todos os requisitos forem atendidos, login bem-sucedido
     showSuccessMessage("Login realizado com sucesso!");
-    // Navegar para a página principal ou de menu após login
     Navigator.pushNamed(context, 'MenuPage');
   }
 
@@ -146,8 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: const Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Esqueceu a senha?',
+                      child: Text('Esqueceu a senha?',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontSize: 14,

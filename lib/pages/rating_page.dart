@@ -70,6 +70,7 @@ class _RatingPageState extends State<RatingPage> {
             mainAxisAlignment: MainAxisAlignment.center, // Alinhamento vertical
             crossAxisAlignment: CrossAxisAlignment.center, // Alinhamento horizontal
             children: [
+
               // AVALIE NOSSO SERVIÇO
               const SizedBox(height: 42),
               const Text(

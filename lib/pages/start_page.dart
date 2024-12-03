@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
-//import 'package:get_it/get_it.dart';
+import 'package:app_flutter/widgets/elevated_button_1.dart';
+import 'package:app_flutter/widgets/elevated_button_2.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -10,27 +11,6 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  Widget customButton(String text, VoidCallback onPressed) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xC8000000),
-        minimumSize: Size(318, 54),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      onPressed: onPressed,
-      child: Text(text,
-        style: TextStyle(
-          fontFamily: 'InriaSerif',
-          fontWeight: FontWeight.bold,
-          fontSize: 22, 
-          color: Color(0xFFC99856),
-        ),
-      ),
-    );
-  }
-  
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -40,7 +20,7 @@ class _StartPageState extends State<StartPage> {
       body: GradientBackground(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/images/logo.png', 
@@ -61,13 +41,25 @@ class _StartPageState extends State<StartPage> {
 
               //LOGIN
               SizedBox(height: 24),
-              customButton('Log In', () {Navigator.pushNamed(context, 'LoginPage');}),
+              CustomElevatedButton1(
+                labelText: 'Log In', 
+                fontSize: 22, 
+                minimumSize: Size(318, 54), 
+                onPressed: () {Navigator.pushNamed(context, 'LoginPage');
+                },
+              ),
 
-              //SIGNUP
+              //SIGN UP
               SizedBox(height: 18),
-              customButton('Sign Up', () {Navigator.pushNamed(context, 'SignUpPage');}),
+              CustomElevatedButton1(
+                labelText: 'Sign Up',
+                fontSize: 22, 
+                minimumSize: Size(318, 54), 
+                onPressed: () {Navigator.pushNamed(context, 'SignUpPage');
+                },
+              ),
 
-              //SEPARATOR
+              //DIVIDER
               SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -90,40 +82,17 @@ class _StartPageState extends State<StartPage> {
 
               //CONTINUE WITH GOOGLE
               SizedBox(height: 24),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 36),
-                child: SizedBox(
-                  height: 54,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100))),
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/images/logo_google.png', width: 29),
-                        SizedBox(width: 10),
-                        Text('Continue with Google',
-                          style: TextStyle(
-                            fontFamily: 'InriaSerif',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18, 
-                            color: Color(0xFF1B313A)
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              CustomElevatedButton2(
+                labelText: 'Continue with Google', 
+                icon: 'assets/images/logo_google.png', 
+                onPressed: () {},
               ),
               
               //PRIVACY TERM
               Spacer(),
               Text('By clicking continue, you agree to our',
                 style: TextStyle(
-                  fontSize: 12, 
+                  fontSize: 14, 
                   color: Colors.grey
                 ),
               ),
@@ -132,16 +101,16 @@ class _StartPageState extends State<StartPage> {
                 children: const [
                   Text('Terms & Conditions',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       color: Color(0xFFC99856),
                       decoration: TextDecoration.underline)),
                   Text(' and ',
                     style: TextStyle(
-                      fontSize: 12, 
+                      fontSize: 14, 
                       color: Colors.grey)),
                   Text('Privacy Policy',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       color: Color(0xFFC99856),
                       decoration: TextDecoration.underline,
                     ),

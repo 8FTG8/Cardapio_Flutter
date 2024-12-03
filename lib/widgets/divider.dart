@@ -17,12 +17,10 @@ class DividerLabel extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         SizedBox(
           width: dividerWidth,
           child: Divider(color: dividerColor, thickness: 0.5),
         ),
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Text(
@@ -30,12 +28,10 @@ class DividerLabel extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
         ),
-
         SizedBox(
           width: dividerWidth,
           child: Divider(color: dividerColor, thickness: 0.5),
         ),
-
       ],
     );
   }

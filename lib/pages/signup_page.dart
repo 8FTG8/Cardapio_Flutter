@@ -1,5 +1,7 @@
+import 'package:app_flutter/widgets/elevated_button_1.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
+import 'package:app_flutter/widgets/text_field.dart';
 
 // Lista global para armazenar usuários cadastrados
 List<Map<String, String>> registeredUsers = [];
@@ -94,40 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-
-  Widget customTextField(TextEditingController controller, String labelText, String hintText, bool obscureText) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: SizedBox(
-        height: 50,
-        child: TextField(
-          controller: controller,
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            labelText: labelText,
-            labelStyle: const TextStyle(color: Color(0x8FFFFFFF)),
-            border: const OutlineInputBorder(),
-            hintText: hintText,
-            hintStyle: const TextStyle(color: Color(0xFFFFFFFF)),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Color(0xFFC99856),
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xFFC99856)),
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          style: const TextStyle(
-            color: Color(0xFFFFFFFF),
-            fontSize: 18,
-          ),
-        ),
-      ),
-    );
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -141,8 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
+                Image.asset('assets/images/logo.png',
                   width: screenWidth,
                   height: screenHeight * 0.4,
                   fit: BoxFit.cover,
@@ -159,8 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           Icons.arrow_back_ios_new,
                           color: Color(0xFFC99856),
                         ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, 'StartPage');
+                        onPressed: () {Navigator.pushNamed(context, 'StartPage');
                         },
                       ),
                       const SizedBox(width: 18),
@@ -177,16 +144,16 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
 
                 const SizedBox(height: 24),
-                customTextField(nameController, 'Nome', 'Informe seu nome', false),
+                CustomTextField(controller: nameController, labelText: 'Nome', hintText: 'Informe seu nome', obscureText: false),
 
                 const SizedBox(height: 18),
-                customTextField(emailController, 'Email', 'Informe seu email', false),
+                CustomTextField(controller: emailController, labelText: 'Email', hintText: 'Informe seu email', obscureText: false),
 
                 const SizedBox(height: 18),
-                customTextField(passwordController, 'Senha', 'Informe sua senha', true),
+                CustomTextField(controller: passwordController, labelText: 'Senha', hintText: 'Informe sua senha', obscureText: true),
 
                 const SizedBox(height: 18),
-                customTextField(confirmPasswordController, 'Confirmação', 'Confirme sua senha', true),
+                CustomTextField(controller: confirmPasswordController, labelText: 'Confirmação', hintText: 'Confirme sua senha', obscureText: true),
 
                 // BOTÃO SIGN UP
                 const SizedBox(height: 24),
@@ -195,28 +162,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SizedBox(
-                        height: 42,
-                        width: 138,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xC8000000),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          onPressed: registerUser,
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontFamily: 'InriaSerif',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Color(0xFFC99856),
-                            ),
-                          ),
-                        ),
-                      ),
+                      CustomElevatedButton1(labelText: 'Sign Up', onPressed: registerUser, minimumSize: Size(138, 48), fontSize: 18),
                     ],
                   ),
                 ),

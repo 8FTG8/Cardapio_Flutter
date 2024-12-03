@@ -1,6 +1,7 @@
+import 'package:app_flutter/widgets/elevated_button_1.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
-//import 'package:get_it/get_it.dart';
+import 'package:app_flutter/widgets/text_field.dart';
 
 class PasswordRecoveryPage extends StatefulWidget {
   const PasswordRecoveryPage({super.key});
@@ -10,34 +11,12 @@ class PasswordRecoveryPage extends StatefulWidget {
 }
 
 class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
-    Widget customButton(String text, VoidCallback onPressed) {
-    return  SizedBox(
-      height: 48,
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xC8000000),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        onPressed: onPressed,
-        child: Text(text,
-          style: TextStyle(
-            fontFamily: 'InriaSerif',
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-            color: Color(0xFFC99856),
-          ),
-        ),
-      ),
-    );
-  }
-  
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final TextEditingController emailController = TextEditingController();
 
     return Scaffold(
       body: GradientBackground(
@@ -51,9 +30,9 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                 fit: BoxFit.cover,
               ),
               
-              //RECUPERAR SENHA
+              // RECUPERAR SENHA
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                padding: EdgeInsets.zero,
                 child: Column(
                   children: [
                     // Title
@@ -69,27 +48,11 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                     
                     // Email Input Field
                     SizedBox(height: 24),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(color: Color(0x8FFFFFFF)),
-                        border: const OutlineInputBorder(),
-                        hintText: 'Informe seu e-mail',
-                        hintStyle: const TextStyle(color: Colors.white),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFC99856)),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Color(0xFFC99856)),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      style: const TextStyle(color: Colors.white),
-                    ),
+                    CustomTextField(controller: emailController, labelText: 'Email', hintText: 'Informe seu e-mail', obscureText: false),
 
                     //Enviar Email
                     const SizedBox(height: 24),
-                    customButton('Enviar email', () {}),
+                    CustomElevatedButton1(labelText: 'Enviar e-mail', onPressed: () {}, minimumSize: Size(318, 54), fontSize: 22),
 
                     //Voltar para Login
                     const SizedBox(height: 18),
@@ -97,7 +60,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                       onTap: () {
                         Navigator.pushNamed(context, 'LoginPage');
                         },
-                      child: Text('Voltar para login',
+                      child: Text('Voltar à página de login',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontSize: 18,

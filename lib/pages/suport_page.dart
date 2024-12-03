@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_flutter/widgets/gradient_background.dart';
 
 class SupportPage extends StatefulWidget {
   const SupportPage({super.key});
@@ -14,35 +15,21 @@ class _SupportPageState extends State<SupportPage> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: const [
-              Color(0xFF478197),
-              Color(0xFF1C343D),
-              Color(0xFF172A31),
-            ],
-          ),
-        ),
-        
+      body: GradientBackground(    
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //LOGO
-              Image.asset(
-                'assets/images/logo.png',
-                width: screenWidth * 0.8,
-                height: screenHeight * 0.3,
+              Image.asset('assets/images/logo.png',
+                width: screenWidth,
+                height: screenHeight * 0.4,
                 fit: BoxFit.cover,
               ),
 
               //TÍTULO
               const SizedBox(height: 24),
-              const Text(
-                'Suporte',
+              const Text('Contate nosso suporte',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontWeight: FontWeight.bold,
@@ -55,8 +42,7 @@ class _SupportPageState extends State<SupportPage> {
               const SizedBox(height: 24),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
-                child: Text(
-                  'Se você tiver alguma dúvida ou problema, entre em contato conosco através do e-mail ou telefone abaixo.',
+                child: Text('Se você tiver alguma dúvida ou problema, entre em contato conosco através do e-mail ou telefone abaixo.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'InriaSerif',
@@ -68,8 +54,7 @@ class _SupportPageState extends State<SupportPage> {
 
               //E-MAIL
               const SizedBox(height: 24),
-              const Text(
-                'Email: suporte@exemplo.com',
+              const Text('Email: LuxuryRestoSupport@gmail.com',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontSize: 16,
@@ -80,7 +65,7 @@ class _SupportPageState extends State<SupportPage> {
               //TELEFONE
               const SizedBox(height: 12),
               const Text(
-                'Telefone: (00) 12345-6789',
+                'Telefone: (11) 99209-3867',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
                   fontSize: 16,
@@ -98,11 +83,9 @@ class _SupportPageState extends State<SupportPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.pop(context); // Voltar à tela anterior
+                onPressed: () {Navigator.pop(context);
                 },
-                child: const Text(
-                  'Voltar',
+                child: const Text('Voltar',
                   style: TextStyle(
                     fontFamily: 'InriaSerif',
                     fontWeight: FontWeight.bold,
