@@ -4,7 +4,11 @@ class CustomNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onTap;
 
-  const CustomNavBar({super.key, required this.selectedIndex, required this.onTap});
+  const CustomNavBar({
+    super.key, 
+    required this.selectedIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

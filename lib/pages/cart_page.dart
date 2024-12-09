@@ -30,40 +30,31 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF478197),
-              Color(0xFF1C343D),
-              Color(0xFF172A31),
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(
+          color: Color(0xFF172A31)),
         child: Column(
           children: [
+
             // Header do Carrinho
             Container(
-              padding: const EdgeInsets.all(24.0),
+              padding: EdgeInsets.only(top: 48.0, bottom: 24.0, left: 24.0, right: 24.0),
               width: double.infinity,
-              color: const Color(0xFF1C343D),
-              child: const Text(
-                'Carrinho de Compras',
+              color: Color(0xFF172A31),
+              child: Text('Carrinho de compras',
                 style: TextStyle(
                   fontFamily: 'InriaSerif',
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w400,
                   fontSize: 22,
                   color: Color(0xFFC99856),
                 ),
               ),
             ),
+
             // Lista de Produtos no Carrinho
             Expanded(
               child: cartItems.isEmpty
                   ? const Center(
-                      child: Text(
-                        'Seu carrinho está vazio',
+                      child: Text('Seu carrinho está vazio!',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     )
@@ -86,12 +77,12 @@ class _CartPageState extends State<CartPage> {
               ),
               child: Column(
                 children: [
+
                   // Total do Carrinho
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        'Total:',
+                      const Text('Total do pedido:',
                         style: TextStyle(
                           fontFamily: 'InriaSerif',
                           fontWeight: FontWeight.bold,
@@ -110,8 +101,9 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+
                   // Botão de Finalizar Compra
+                  const SizedBox(height: 12),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFC99856),
@@ -124,8 +116,7 @@ class _CartPageState extends State<CartPage> {
                       // Ação para mostrar resumo do pedido
                       _showOrderSummary();
                     },
-                    child: const Text(
-                      'Finalizar Pedido',
+                    child: const Text('Finalizar Pedido',
                       style: TextStyle(
                         fontFamily: 'InriaSerif',
                         fontWeight: FontWeight.bold,

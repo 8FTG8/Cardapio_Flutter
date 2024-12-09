@@ -25,7 +25,6 @@ class ProductCard extends StatelessWidget {
           color: backgroundColor,
           borderRadius: BorderRadius.circular(12.0),
         ),
-        // Aqui vai o Column
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

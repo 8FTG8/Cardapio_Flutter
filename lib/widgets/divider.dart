@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class DividerLabel extends StatelessWidget {
   final String label;
   final double dividerWidth;
@@ -19,18 +18,27 @@ class DividerLabel extends StatelessWidget {
       children: [
         SizedBox(
           width: dividerWidth,
-          child: Divider(color: dividerColor, thickness: 0.5),
+          child: Divider(
+            color: dividerColor, 
+            thickness: 0.5,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Text(
             label,
-            style: const TextStyle(color: Colors.white, fontSize: 16),
+            style: TextStyle(
+              color: Colors.white, 
+              fontSize: 16,
+            ),
           ),
         ),
         SizedBox(
           width: dividerWidth,
-          child: Divider(color: dividerColor, thickness: 0.5),
+          child: Divider(
+            color: dividerColor, 
+            thickness: 0.5,
+          ),
         ),
       ],
     );

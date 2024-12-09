@@ -90,8 +90,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: const Text(
-                          'Popular',
+                        child: const Text('Popular',
                           style: TextStyle(color: Colors.black, fontSize: 12),
                         ),
                       ),
@@ -189,8 +188,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             ),
                           );
                         },
-                        child: const Text(
-                          'Add to Cart',
+                        child: const Text('Add to Cart',
                           style: TextStyle(
                             fontFamily: 'InriaSerif',
                             fontWeight: FontWeight.bold,

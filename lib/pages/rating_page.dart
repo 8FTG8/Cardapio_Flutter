@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
-//import 'package:get_it/get_it.dart';
 
 class RatingPage extends StatefulWidget {
   const RatingPage({super.key});
