@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "32655206373",
+    "project_id": "cardapioflutter-978a9",
+    "storage_bucket": "cardapioflutter-978a9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32655206373:android:cd46236fcd4e79cb10310c",
+        "android_client_info": {
+          "package_name": "cardapioflutter.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM-nnCfI7i9mrVs864Lt8EIlTFg5MVNtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
