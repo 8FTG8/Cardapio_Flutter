@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:app_flutter/pages/cart_page.dart';
 import 'package:app_flutter/widgets/divider.dart';
-import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/food_card.dart';
 import 'package:app_flutter/widgets/nav_bar.dart';
 import 'product_details_page.dart';
@@ -14,10 +14,6 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   int _currentIndex = 0;
-  final List<Widget> _pages = [
-    const MenuPage(),
-    const CartPage(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +62,7 @@ class _MenuPageState extends State<MenuPage> {
       ),
     );
   }
-
+  
   // ---------- ENTRADAS ---------- \\
   List<ProductCard> _entradas() {
     return [
@@ -343,6 +339,7 @@ class _MenuPageState extends State<MenuPage> {
     ];
   }
 
+  // FUNÇÃO DE NAVEGAÇÃO
   void _navigateToProductDetails(BuildContext context, String productName, String productDescription, String productImage) {
     Navigator.push(
       context,

@@ -1,8 +1,5 @@
-import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
-import 'package:app_flutter/widgets/nav_bar.dart';
-
-// Importando a lista global de itens do carrinho
+import 'package:app_flutter/widgets/gradient_background.dart';
 import 'cart_page.dart';
 
 class ProductDetailsPage extends StatefulWidget {
