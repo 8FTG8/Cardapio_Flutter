@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
+import 'package:app_flutter/widgets/text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -29,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     // Se todos os requisitos forem atendidos, login bem-sucedido
-    showSuccessMessage("Login realizado com sucesso!");
     Navigator.pushNamed(context, 'MenuPage');
   }
 
@@ -51,38 +51,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget customTextField(TextEditingController controller, String labelText, String hintText, bool obscureText) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: SizedBox(
-        height: 50,
-        child: TextField(
-          controller: controller,
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            labelText: labelText,
-            labelStyle: const TextStyle(color: Color(0x8FFFFFFF)),
-            border: const OutlineInputBorder(),
-            hintText: hintText,
-            hintStyle: const TextStyle(color: Color(0xFFFFFFFF)),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color(0xFFC99856),
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xFFC99856)),
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          style: const TextStyle(
-            color: Color(0xFFFFFFFF),
-            fontSize: 18,
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,10 +99,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 const SizedBox(height: 24),
-                customTextField(emailController, 'Email', 'Informe seu email', false),
+                CustomTextField(emailController, 'Email', 'Informe seu email', false),
 
                 const SizedBox(height: 18),
-                customTextField(passwordController, 'Senha', 'Informe sua senha', true),
+                CustomTextField(passwordController, 'Senha', 'Informe sua senha', true),
 
                 const SizedBox(height: 18),
                 Padding(
