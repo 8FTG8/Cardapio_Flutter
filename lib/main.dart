@@ -22,8 +22,7 @@ List<Map<String, dynamic>> cartItems = [];
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     DevicePreview(
       enabled: !kReleaseMode, // Habilita apenas em modo de desenvolvimento

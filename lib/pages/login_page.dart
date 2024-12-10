@@ -12,7 +12,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
   final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
   void loginUser() {
@@ -99,10 +98,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 const SizedBox(height: 24),
-                CustomTextField(emailController, 'Email', 'Informe seu email', false),
+                CustomTextField(
+                  controller: emailController, 
+                  labelText: 'Email', 
+                  hintText: 'Informe seu email', 
+                  obscureText: false,
+                ),
 
                 const SizedBox(height: 18),
-                CustomTextField(passwordController, 'Senha', 'Informe sua senha', true),
+                CustomTextField(
+                  controller: passwordController, 
+                  labelText: 'Senha', 
+                  hintText: 'Informe sua senha', 
+                  obscureText: true,
+                ),
 
                 const SizedBox(height: 18),
                 Padding(
