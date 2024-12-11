@@ -64,7 +64,6 @@ class _SignUpPageState extends State<SignUpPage> {
         password: password
       );
 
-
     // Armazenamento de informações adicionais no Firestore
     await _firestore.collection('usuarios').doc(userCredential.user!.uid).set({
       'name:': name,
@@ -74,6 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
     showSuccessMessage("Cadastro realizado com sucesso!");
     Navigator.pushNamed(context, 'StartPage');
     } on FirebaseAuthException catch (e) {
+      
       if (e.code == 'email-already-in-use') {
         showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");
 

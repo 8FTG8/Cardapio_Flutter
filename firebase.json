@@ -1,1 +1,29 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"cardapioflutter-978a9","appId":"1:32655206373:android:cd46236fcd4e79cb10310c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"cardapioflutter-978a9","configurations":{"web":"1:32655206373:web:bec3cde414227ccc10310c"}}}}},"emulators":{"auth":{"port":9099},"ui":{"enabled":true},"singleProjectMode":true}}
+{
+    "flutter":{
+        "platforms":{
+            "android":{
+                "default":{
+                    "projectId":"cardapioflutter-978a9",
+                    "appId":"1:32655206373:android:cd46236fcd4e79cb10310c",
+                    "fileOutput":"android/app/google-services.json"
+                }
+            },
+            "dart":{
+                "lib/firebase_options.dart":{
+                    "projectId":"cardapioflutter-978a9",
+                    "configurations":{"web":"1:32655206373:web:bec3cde414227ccc10310c"
+                    }
+                }
+            }
+        }
+    },
+    "emulators":{
+        "auth":{
+            "port":9099
+        },
+        "ui":{
+            "enabled":true
+        },
+        "singleProjectMode":true
+    }
+}

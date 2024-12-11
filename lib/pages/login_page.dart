@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:app_flutter/widgets/text_field.dart';
@@ -13,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
-  void loginUser() {
+  void loginUser() async {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
@@ -26,6 +27,29 @@ class _LoginPageState extends State<LoginPage> {
       showErrorMessage("Por favor, insira um e-mail válido.");
       return;
     }
+
+    // Tenta autenticacar com Firebase
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Se a autenticação for bem-sucedida
+      if (userCredential.user != null) {
+        Navigator.pushNamed(context, 'MenuPage');
+      }
+    } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      showErrorMessage("Nenhum usuário encontrado para esse e-mail.");
+
+    } else if (e.code == 'wrong-password') {
+      showErrorMessage("Senha incorreta.");
+
+    } else {
+      showErrorMessage ("Erro: ${e.message}");
+    }
+  }
 
     // Se todos os requisitos forem atendidos, login bem-sucedido
     Navigator.pushNamed(context, 'MenuPage');
