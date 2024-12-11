@@ -1,4 +1,4 @@
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -66,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     showSuccessMessage("Cadastro realizado com sucesso!");
     Navigator.pushNamed(context, 'StartPage');
-    
+
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");

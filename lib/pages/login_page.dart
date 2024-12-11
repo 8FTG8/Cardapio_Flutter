@@ -39,18 +39,17 @@ class _LoginPageState extends State<LoginPage> {
       if (userCredential.user != null) {
         Navigator.pushNamed(context, 'MenuPage');
       }
-    } on FirebaseAuthException catch (e) {
-    if (e.code == 'user-not-found') {
-      showErrorMessage("Nenhum usuário encontrado para esse e-mail.");
-    } else if (e.code == 'wrong-password') {
-      showErrorMessage("Senha incorreta.");
-    } else {
-      showErrorMessage ("Erro: ${e.message}");
-    }
-  }
 
-    // Se todos os requisitos forem atendidos, login bem-sucedido
-    Navigator.pushNamed(context, 'MenuPage');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+
+        showErrorMessage("Nenhum usuário encontrado para esse e-mail.");
+      } else if (e.code == 'wrong-password') {
+        showErrorMessage("Senha incorreta.");
+      } else {
+        showErrorMessage ("Erro: ${e.message}");
+      }
+    }
   }
 
   void showErrorMessage(String message) {
