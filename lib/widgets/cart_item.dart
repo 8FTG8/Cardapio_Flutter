@@ -1,9 +1,4 @@
-
-
-
 /* 
-
-
 // Classe para representar um item no carrinho
 class CartItem {
   final String productName;

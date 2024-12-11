@@ -42,10 +42,8 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
       showErrorMessage("Nenhum usuário encontrado para esse e-mail.");
-
     } else if (e.code == 'wrong-password') {
       showErrorMessage("Senha incorreta.");
-
     } else {
       showErrorMessage ("Erro: ${e.message}");
     }
@@ -72,7 +70,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {

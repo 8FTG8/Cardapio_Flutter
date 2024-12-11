@@ -21,9 +21,15 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -45,31 +51,13 @@ class DefaultFirebaseOptions {
         );
     }
   }
-  
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAM-nnCfI7i9mrVs864Lt8EIlTFg5MVNtg',
-    appId: '1:32655206373:android:cd46236fcd4e79cb10310c',
-    messagingSenderId: '32655206373',
-    projectId: 'cardapioflutter-978a9',
-    storageBucket: 'cardapioflutter-978a9.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAhKN8uH_zj8sjQGXKujINFvkkNK-GEWOk',
-    appId: '1:32655206373:ios:4a0d5677dcfb964610310c',
-    messagingSenderId: '32655206373',
-    projectId: 'cardapioflutter-978a9',
-    storageBucket: 'cardapioflutter-978a9.firebasestorage.app',
-    iosBundleId: 'com.example.aulaFlutter3',
-  );
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyAj0YIlsbpWN8_vykXQxUAGXEviBTgM3Po',
-    appId: '1:32655206373:web:bec3cde414227ccc10310c',
-    messagingSenderId: '32655206373',
-    projectId: 'cardapioflutter-978a9',
     authDomain: 'cardapioflutter-978a9.firebaseapp.com',
+    projectId: 'cardapioflutter-978a9',
     storageBucket: 'cardapioflutter-978a9.firebasestorage.app',
+    messagingSenderId: '32655206373',
+    appId: '1:32655206373:web:bec3cde414227ccc10310c',
   );
-
 }

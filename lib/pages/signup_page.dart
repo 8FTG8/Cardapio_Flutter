@@ -27,7 +27,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // Função para validar e cadastrar um novo usuário
-  Future <void> registerUser() async {
+  Future<void> registerUser() async {
     String name = nameController.text;
     String email = emailController.text;
     String password = passwordController.text;
@@ -37,22 +37,16 @@ class _SignUpPageState extends State<SignUpPage> {
     if (name.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       showErrorMessage("Todos os campos são obrigatórios!");
       return;
-    }
 
-    // Verificação se o e-mail é válido
-    if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) {
+    } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) {
       showErrorMessage("Por favor, insira um e-mail válido.");
       return;
-    }
 
-    // Verificação se as senhas coincidem
-    if (password != confirmPassword) {
+    } else if (password != confirmPassword) {
       showErrorMessage("As senhas não coincidem.");
       return;
-    }
-
-    // Verificação se a senha possui critérios básicos de segurança (mínimo 8 caracteres)
-    if (password.length < 8) {
+      
+    } else if (password.length < 8) {
       showErrorMessage("A senha deve ter no mínimo 8 caracteres.");
       return;
     }
@@ -72,8 +66,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
     showSuccessMessage("Cadastro realizado com sucesso!");
     Navigator.pushNamed(context, 'StartPage');
+    
     } on FirebaseAuthException catch (e) {
-      
       if (e.code == 'email-already-in-use') {
         showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");
 
