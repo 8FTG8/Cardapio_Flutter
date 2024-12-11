@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -48,7 +45,7 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
+  
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAM-nnCfI7i9mrVs864Lt8EIlTFg5MVNtg',
     appId: '1:32655206373:android:cd46236fcd4e79cb10310c',
@@ -64,6 +61,15 @@ class DefaultFirebaseOptions {
     projectId: 'cardapioflutter-978a9',
     storageBucket: 'cardapioflutter-978a9.firebasestorage.app',
     iosBundleId: 'com.example.aulaFlutter3',
+  );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAj0YIlsbpWN8_vykXQxUAGXEviBTgM3Po',
+    appId: '1:32655206373:web:bec3cde414227ccc10310c',
+    messagingSenderId: '32655206373',
+    projectId: 'cardapioflutter-978a9',
+    authDomain: 'cardapioflutter-978a9.firebaseapp.com',
+    storageBucket: 'cardapioflutter-978a9.firebasestorage.app',
   );
 
 }

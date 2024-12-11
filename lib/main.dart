@@ -1,11 +1,14 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
+
 import 'package:app_flutter/pages/recovery_page.dart';
 import 'package:app_flutter/pages/rating_page.dart';
 import 'package:app_flutter/pages/suport_page.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-//import 'package:firebase_core/firebase_core.dart';
-//import 'firebase_options.dart';
 
 import 'pages/start_page.dart';
 import 'pages/login_page.dart';
@@ -19,13 +22,19 @@ List<Map<String, String>> registeredUsers = [];
 
 // Estrutura do carrinho para armazenar produtos selecionados
 List<Map<String, dynamic>> cartItems = [];
-
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inicializar o Firebase
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  
+  // Configurar o Firebase Auth para usar o emulador local
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+
+  // Rodar o aplicativo com DevicePreview
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode, // Habilita apenas em modo de desenvolvimento
+     enabled: !kReleaseMode, // Habilita apenas em modo de desenvolvimento
       builder: (context) => MainApp(),
     ),
   );

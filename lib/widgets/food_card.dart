@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProductCard extends StatelessWidget {
+class FoodCard extends StatelessWidget {
   final String name;
   final String price;
   final String image;
   final Color backgroundColor;
   final VoidCallback onTap;
 
-  const ProductCard({
+  const FoodCard({
     required this.name,
     required this.price,
     required this.image,

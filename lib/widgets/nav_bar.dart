@@ -27,16 +27,16 @@ class CustomNavBar extends StatelessWidget {
       iconSize: 30.0,
       items: const [
         BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_outlined),
+          label: 'Account',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.menu),
           label: 'Menu',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart_outlined),
           label: 'Cart',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle_outlined),
-          label: 'Account',
         ),
       ],
     );

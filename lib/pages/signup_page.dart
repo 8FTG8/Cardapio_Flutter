@@ -1,13 +1,16 @@
-import 'package:app_flutter/widgets/elevated_button_1.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
+import 'package:app_flutter/widgets/elevated_button_1.dart';
 import 'package:app_flutter/widgets/text_field.dart';
 
 // Lista global para armazenar usuários cadastrados
 List<Map<String, String>> registeredUsers = [];
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -20,8 +23,11 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   // Função para validar e cadastrar um novo usuário
-  void registerUser() {
+  Future <void> registerUser() async {
     String name = nameController.text;
     String email = emailController.text;
     String password = passwordController.text;
@@ -47,34 +53,40 @@ class _SignUpPageState extends State<SignUpPage> {
 
     // Verificação se a senha possui critérios básicos de segurança (mínimo 8 caracteres)
     if (password.length < 8) {
-      showErrorMessage("A senha deve ter no mínimo 6 caracteres.");
+      showErrorMessage("A senha deve ter no mínimo 8 caracteres.");
       return;
     }
 
-    // Verificação se o e-mail já está cadastrado
-    bool emailExists = registeredUsers.any((user) => user['email'] == email);
-    if (emailExists) {
-      showErrorMessage("E-mail já cadastrado. Por favor, faça login.");
-      return;
-    }
+    // Criação de usuário no Firebase Authentication
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: email, 
+        password: password
+      );
 
-    // Armazenar usuário cadastrado na lista global
-    registeredUsers.add({
-      'name': name,
+
+    // Armazenamento de informações adicionais no Firestore
+    await _firestore.collection('usuarios').doc(userCredential.user!.uid).set({
+      'name:': name,
       'email': email,
-      'password': password,
     });
 
-    // Limpar campos após o cadastro
-    nameController.clear();
-    emailController.clear();
-    passwordController.clear();
-    confirmPasswordController.clear();
-
     showSuccessMessage("Cadastro realizado com sucesso!");
-
-    // Navegar para a página inicial após o cadastro
     Navigator.pushNamed(context, 'StartPage');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");
+
+      } else if (e.code == 'weak-password') {
+        showErrorMessage("A senha é muito frac.");
+
+      } else {
+        showErrorMessage("Erro: ${e.message}");
+
+      }
+    } catch (e) {
+      showErrorMessage("Ocorreu um erro inesperado. Por favor, tente novamente.");
+    }
   }
 
   // Função para exibir mensagem de erro

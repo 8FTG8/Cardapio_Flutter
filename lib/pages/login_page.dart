@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_flutter/widgets/gradient_background.dart';
 import 'package:app_flutter/widgets/text_field.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
