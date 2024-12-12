@@ -27,6 +27,9 @@ class _LoginPageState extends State<LoginPage> {
       showErrorMessage("Por favor, insira um e-mail válido.");
       return;
     }
+    
+    // Se todos os requisitos forem atendidos, login bem-sucedido
+    Navigator.pushNamed(context, 'MenuPage');
 
     // Tenta autenticacar com Firebase
     try {
@@ -42,12 +45,9 @@ class _LoginPageState extends State<LoginPage> {
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-
         showErrorMessage("Nenhum usuário encontrado para esse e-mail.");
       } else if (e.code == 'wrong-password') {
         showErrorMessage("Senha incorreta.");
-      } else {
-        showErrorMessage ("Erro: ${e.message}");
       }
     }
   }

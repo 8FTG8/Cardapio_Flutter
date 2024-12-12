@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,91 +16,12 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  // Controladores de texto para capturar dados de entrada
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  // Função para validar e cadastrar um novo usuário
-  Future<void> registerUser() async {
-    String name = nameController.text;
-    String email = emailController.text;
-    String password = passwordController.text;
-    String confirmPassword = confirmPasswordController.text;
-
-    // Verificação se os campos estão preenchidos
-    if (name.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
-      showErrorMessage("Todos os campos são obrigatórios!");
-      return;
-
-    } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) {
-      showErrorMessage("Por favor, insira um e-mail válido.");
-      return;
-
-    } else if (password != confirmPassword) {
-      showErrorMessage("As senhas não coincidem.");
-      return;
-      
-    } else if (password.length < 8) {
-      showErrorMessage("A senha deve ter no mínimo 8 caracteres.");
-      return;
-    }
-
-    // Criação de usuário no Firebase Authentication
-    try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email, 
-        password: password
-      );
-
-    // Armazenamento de informações adicionais no Firestore
-    await _firestore.collection('usuarios').doc(userCredential.user!.uid).set({
-      'name:': name,
-      'email': email,
-    });
-
-    showSuccessMessage("Cadastro realizado com sucesso!");
-    Navigator.pushNamed(context, 'StartPage');
-
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
-        showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");
-
-      } else if (e.code == 'weak-password') {
-        showErrorMessage("A senha é muito frac.");
-
-      } else {
-        showErrorMessage("Erro: ${e.message}");
-
-      }
-    } catch (e) {
-      showErrorMessage("Ocorreu um erro inesperado. Por favor, tente novamente.");
-    }
-  }
-
-  // Função para exibir mensagem de erro
-  void showErrorMessage(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
-    );
-  }
-
-  // Função para exibir mensagem de sucesso
-  void showSuccessMessage(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.green,
-      ),
-    );
-  }
   
   @override
   Widget build(BuildContext context) {
@@ -176,6 +96,83 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  // Função para validar e cadastrar um novo usuário
+  Future<void> registerUser() async {
+    String name = nameController.text;
+    String email = emailController.text;
+    String password = passwordController.text;
+    String confirmPassword = confirmPasswordController.text;
+
+    // Verificação se os campos estão preenchidos
+    if (name.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      showErrorMessage("Todos os campos são obrigatórios!");
+      return;
+      
+    } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) {
+      showErrorMessage("Por favor, insira um e-mail válido.");
+      return;
+
+    } else if (password != confirmPassword) {
+      showErrorMessage("As senhas não coincidem.");
+      return;
+      
+    } else if (password.length < 8) {
+      showErrorMessage("A senha deve ter no mínimo 8 caracteres.");
+      return;
+    }
+
+    // Criação de usuário no Firebase Authentication
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: email, 
+        password: password
+      );
+
+    // Armazenamento de informações adicionais no Firestore
+    await _firestore.collection('usuarios').doc(userCredential.user!.uid).set({
+      'name:': name,
+      'email': email,
+    });
+
+    showSuccessMessage("Cadastro realizado com sucesso!");
+    Navigator.pushNamed(context, 'StartPage');
+
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        showErrorMessage("Este e-mail já está cadastrado. Por favor, fça o login");
+
+      } else if (e.code == 'weak-password') {
+        showErrorMessage("A senha é muito frac.");
+
+      } else {
+        showErrorMessage("Erro: ${e.message}");
+
+      }
+    } catch (e) {
+      showErrorMessage("Ocorreu um erro inesperado. Por favor, tente novamente.");
+    }
+  }
+
+  // Função para exibir mensagem de erro
+  void showErrorMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  // Função para exibir mensagem de sucesso
+  void showSuccessMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green,
       ),
     );
   }

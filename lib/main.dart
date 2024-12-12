@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:device_preview/device_preview.dart';
@@ -24,17 +23,10 @@ List<Map<String, String>> registeredUsers = [];
 List<Map<String, dynamic>> cartItems = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Inicializar o Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
-  // Configurar o Firebase Auth para usar o emulador local
   await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-
-  // Rodar o aplicativo com DevicePreview
   runApp(
     DevicePreview(
-     enabled: !kReleaseMode, // Habilita apenas em modo de desenvolvimento
       builder: (context) => MainApp(),
     ),
   );
@@ -72,11 +64,11 @@ class MainApp extends StatelessWidget {
             ),
           );
         }
-        return null; // Retorna null se a rota não for reconhecida
+        return null;
       },
       builder: (context, child) {
         return Scaffold(
-          drawer: const CartPage(), // Adiciona o drawer do carrinho aqui
+          drawer: const CartPage(), // Adiciona o drawer do carrinho
           body: child,
         );
       },
